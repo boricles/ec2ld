@@ -1,0 +1,24 @@
+AMI attributes given by Amazon:
+
+AMI ID - ImageId(ami-0c32ef65)
+Owner ID, Owner  - OwnerId(013907871322), ImageOwnerAlias (amazon)
+Visibility - Public(true)
+Product Code
+AMI Name - Name(suse-sles-11-sp2-v1.00.i386)
+Platform - ImageLocation(amazon/suse-sles-11-sp2-v1.00.i386, Description
+Root Device Name - RootDeviceName (/dev/sda1)
+Image Type - ImageType(machine)
+RAM Disk ID
+Virtualization - VirtualizationType(paravirtual), Hypervisor(xen)
+Source
+Status - State(available)
+Architecture - Architecture(i386)
+Description - Description(SUSE Linux Enterprise Server 11 Service Pack 2 for x86 (Build 11.1))
+Root Device - RootDeviceName(/dev/sda1), RootDeviceType(ebs)
+Block Devices - BlockDeviceMappings: [{DeviceName: /dev/sda1, Ebs: {SnapshotId: snap-1aabc661, VolumeSize: 10, DeleteOnTermination: true, }, }]
+Kernel ID - KernelId(aki-805ea7e9)
+Image Size
+
+
+Amazon console
+Name, AMI ID, Source, Owner, Visibility, Status, Platform, Root Device, Virtualization

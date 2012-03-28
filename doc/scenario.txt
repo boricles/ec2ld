@@ -1,0 +1,21 @@
+Finding semantic similarities 
+ * people like to find virtual machine similar to their own
+ * sometimes we want to replace physical machines with virtual machines 
+ 
+Finding a suitable virtual machine to test software 
+ * based on the software / hardware requirements 
+ 
+
+In the case you want to find a machine similar to exisitng physical machine
+ * run our tool inside the physical machine
+ * it will collect information from the environment
+   create a sparql query based on all available data
+    - an algorithm to find the most suitable one in case it can't find all paramerters
+    - define what are the must have and what are the optional
+  * it will connect to our SPARQL endpoint and get the suitable images 
+  * will show the ids
+
+In the case you want to run a new software,
+  * user has to put some values in a webapp which will show suitable AMI ids
+
+A html widget that can be attached to software download webpages
