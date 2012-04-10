@@ -17,8 +17,12 @@ Description - Description(SUSE Linux Enterprise Server 11 Service Pack 2 for x86
 Root Device - RootDeviceName(/dev/sda1), RootDeviceType(ebs)
 Block Devices - BlockDeviceMappings: [{DeviceName: /dev/sda1, Ebs: {SnapshotId: snap-1aabc661, VolumeSize: 10, DeleteOnTermination: true, }, }]
 Kernel ID - KernelId(aki-805ea7e9)
-Image Size
+Image Size 
 
 
 Amazon console
-Name, AMI ID, Source, Owner, Visibility, Status, Platform, Root Device, Virtualization
+Table - Name, AMI ID, Source, Owner, Visibility, Status, Platform, Root Device, Virtualization
+Per AMI - 
+AMI Name, Description, Source: ec2-paid-ibm-images/ibm-tivoli-itm-06.21.03.00-32b-600.manifest.xml, Owner: amazon (470254534024), Visibility: Public, Product Code: 80ED00B8
+State: available, Kernel ID: aki-7e48a817, RAM Disk ID: ari-6648a80f, Image Type: machine,	Architecture: i386,	Platform: Other Linux, Root Device Type: instance store,	Root Device: -	Image Size: 0 bytes, Block Devices: N/A - Instance Store, Virtualization: paravirtual , State Reason: -
+
