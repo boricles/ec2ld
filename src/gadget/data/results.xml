@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<results>
+	<ami>
+		<id>ami-1af12273</id>
+		<url>https://aws.amazon.com/amis/panda-project-0-1-0</url>
+	</ami>
+	<ami>
+		<id>ami-1af12273</id>
+		<url>https://aws.amazon.com/amis/clusterpoint-server-v2-32-bit</url>
+	</ami>
+</results>

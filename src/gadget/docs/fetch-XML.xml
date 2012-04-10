@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Amazon AMIs for __UP_product__" scrolling="true"/> 
+  <UserPref name="product" display_name="Product" default_value="MyTool"/>
+  <UserPref name="os" display_name="Operating System" default_value="Windows" datatype="enum" >
+     <EnumValue value="Amazon Linux" />
+     <EnumValue value="Cent OS" />
+     <EnumValue value="Debian" />
+     <EnumValue value="Fedora" />
+     <EnumValue value="Gentoo" />
+     <EnumValue value="OpenSolaris" />
+     <EnumValue value="OpenSUSE" />
+     <EnumValue value="Red Hat" />
+     <EnumValue value="SUSE Linux" />
+     <EnumValue value="Ubuntu" />
+     <EnumValue value="Windows" />
+   </UserPref>
+  <UserPref name="arch" display_name="Architecture" default_value="32-bit" datatype="enum">
+     <EnumValue value="32-bit" />
+     <EnumValue value="64-bit" />
+  </UserPref>
+  <UserPref name="mycalories" display_name="Calorie limit" default_value="800"/>
+  <UserPref name="mychoice" display_name="What else?" datatype="bool" default_value="true"/>
+
+	<Content type="html">
+	  <![CDATA[
+	    <div id="content_div"></div>
+	    <script type="text/javascript">
+	      // get prefs
+	      var prefs = new gadgets.Prefs();
+	      // Calorie limit set by user
+	      var calorieLimit = prefs.getString("os");
+	      // Indicates whether to show descriptions in the breakfast menu    
+	      var description = prefs.getBool("mychoice");
+	
+	      function makeDOMRequest() {    
+	        var params = {};  
+	        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;  
+	        var url = "http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/breakfast-data.xml";  
+	        gadgets.io.makeRequest(url, response, params);
+	      };
+	      
+	      function response(obj) { 
+	        // Start building HTML string that will be displayed in <div>.           
+	        // Set the style for the <div>.        
+	        var html = "<div style='padding: 5px;background-color: #ccf;font-family:Arial, Helvetica;" 
+	          + "text-align:left;font-size:90%'>";   
+	        // Set style for title.
+	        html +="<div style='text-align:center; font-size: 120%; color: yellow; " 
+	          + "font-weight: 700;'>"; 
+	        // obj.data contains a Document DOM element corresponding to the
+	        // page that was requested
+	        var domdata = obj.data;
+	
+	        // Display menu title. Use getElementsByTagName() to retrieve the <menu> element.
+	        // Since there is only one menu element in the file,
+	        // you can get to it by accessing the item at index "0". 
+	        // You can then use getAttribute to get the text associated with the
+	        // menu "title" attribute.
+	        var title = domdata.getElementsByTagName("menu").item(0).getAttribute("title");
+	
+	        // Alternatively, you could retrieve the title by getting the menu element node
+	        // and calling the "attributes" function on it. This returns an array
+	        // of the element node's attributes. In this case, there is only one
+	        // attribute (title), so you could display the value for the attribute at
+	        // index 0. For example:
+	        // 
+	        // var title = domdata.getElementsByTagName("menu").item(0).attributes.item(0).nodeValue; 
+	
+	        html += title + "</div><br>"; 
+	        // Get a list of the <food> element nodes in the file
+	        var itemList = domdata.getElementsByTagName("food");
+	 
+	        // Loop through all <food> nodes
+	        for (var i = 0; i < itemList.length ; i++) { 
+	        // For each <food> node, get child nodes.
+	        var nodeList = itemList.item(i).childNodes;
+	
+	        // Loop through child nodes. Extract data from the text nodes that are
+	        // the children of the associated name, price, and calories element nodes.
+	        for (var j = 0; j < nodeList.length ; j++) {
+	          var node = nodeList.item(j);
+	          if (node.nodeName == "name") 
+	          {
+	            var name = node.firstChild.nodeValue;
+	          }
+	          if (node.nodeName == "price") 
+	          {
+	            var price = node.firstChild.nodeValue;
+	          }
+	          if (node.nodeName == "calories") 
+	          {
+	            var calories = node.firstChild.nodeValue; 
+	          }
+	          // If the user chose to display descriptions and
+	          // the child node is "#cdata-section", grab the 
+	          // contents of the description CDATA for display.
+	          if (node.nodeName == "description" && description==true)
+	          {
+	            if (node.firstChild.nodeName == "#cdata-section") 
+	              var data = node.firstChild.nodeValue;
+	          }
+	        } 
+	        // Append extracted data to the HTML string.
+	        html += "<i><b>";
+	        html += name;
+	        html += "</b></i><br>";
+	        html += "&emsp;"; 
+	        html += price;
+	        html += " - ";
+	        // If "calories" is greater than the user-specified calorie limit,
+	        // display it in red.
+	        if(calories > calorieLimit) {
+	          html += "<font color=#ff0000>";
+	          html += calories + " calories";
+	          html += " </font>"; 
+	        }
+	        else
+	          html += calories + " calories";
+	        html += "<br>";
+	        // If user has chosen to display descriptions
+	        if (description==true) 
+	        {
+	          html += "<i>" + data + "</i><br>";
+	        } 
+	      } 
+	      // Close up div
+	      html += "</div>";
+	      document.getElementById('content_div').innerHTML = html;
+	    };
+	    gadgets.util.registerOnLoadHandler(makeDOMRequest);
+	    </script>
+	  ]]>
+  </Content>
+</Module>
+​
