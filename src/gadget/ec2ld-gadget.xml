@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- http://www.google.com/ig/directory?type=gadgets&url=hosting.gmodules.com/ig/gadgets/file/112446656455089341970/ec2ld-index.xml -->
 <Module>
   <ModulePrefs title="Amazon AMIs for __UP_product__" 
                description="This gadget lets you find Amazon AMIs based on your requirements"
@@ -39,12 +40,13 @@
 	      var prefs = new gadgets.Prefs();
 
 	      var os = prefs.getString("os");
+	      var arch = prefs.getString("arch");
 	      var product = prefs.getString("product");
 	
 	      function makeDOMRequest() {    
 	        var params = {};  
 	        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;  
-	        var url = "https://raw.github.com/boricles/ec2ld/master/src/gadget/data/results.xml";  
+	        var url = "http://appserver.stratoslive.wso2.com/t/nandana.org/webapps/ec2ld/data/AMIFinder?os="+os+"&arch="+arch;  
 	        gadgets.io.makeRequest(url, response, params);
 	      };
 	      
@@ -63,7 +65,8 @@
 	          + "font-weight: 700;'>"
 	          + "AMI images for " 
 	          + product + "</div><br>";
-	          
+	         
+	           
 	        // Get a list of the <ami> element nodes in the file
 	        var itemList = domdata.getElementsByTagName("ami");
 	 
@@ -88,12 +91,11 @@
 	        } 
 	        
 	        // Append extracted data to the HTML string.
-	        html += "<i><b>";
-	        html += id;
-	        html += "</b></i><br>";
+	        html += "<a href=\""+url+"\">" + id + "</a>";
+	        html += "<br>";
 
 	      } 
-	      // Close up div
+	      // Close up div 
 	      html += "</div>";
 	      document.getElementById('content_div').innerHTML = html;
 	    };

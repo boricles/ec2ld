@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>EC2LD - Finds the AMIs via LinkedData</display-name>
+	
+	<servlet>
+		<servlet-name>AMIFinderServlet</servlet-name>
+		<servlet-class>es.upm.fi.oeg.ec2ld.data.servlet.AMIFinderServlet</servlet-class>
+		<description>AMIFinderServlet - Finds the AMIs </description>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AMIFinderServlet</servlet-name>
+		<url-pattern>/data/AMIFinder</url-pattern>
+	</servlet-mapping>
+</web-app>
