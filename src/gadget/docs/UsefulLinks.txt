@@ -6,3 +6,6 @@ http://code.google.com/p/opensocial-resources/wiki/GadgetsMakeRequest
 
 Launch AMI
 https://aws.amazon.com/amis/windows-server-2008-r2-sp1-english-64bit-windows-media-services-4-1-2012-03-15
+
+Gadget URL
+http://www.google.com/ig/directory?type=gadgets&url=hosting.gmodules.com/ig/gadgets/file/112446656455089341970/ec2ld-index.xml
