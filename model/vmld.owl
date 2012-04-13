@@ -50,6 +50,16 @@
     
 
 
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#belongsToRegion -->
+
+    <owl:ObjectProperty rdf:about="#belongsToRegion">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Ami"/>
+        <rdfs:range rdf:resource="#Region"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#couldBeBasedOn -->
 
     <owl:ObjectProperty rdf:about="#couldBeBasedOn">
@@ -240,6 +250,15 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="#Ami"/>
         <rdfs:range rdf:resource="#OS"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#sameAmiAs -->
+
+    <owl:ObjectProperty rdf:about="#sameAmiAs">
+        <rdfs:range rdf:resource="#Ami"/>
+        <rdfs:domain rdf:resource="#Ami"/>
     </owl:ObjectProperty>
     
 
@@ -555,6 +574,12 @@
     
 
 
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Region -->
+
+    <owl:Class rdf:about="#Region"/>
+    
+
+
     <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#RootDevice -->
 
     <owl:Class rdf:about="#RootDevice"/>
@@ -812,6 +837,22 @@
     
 
 
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#asia_pacific_singapore -->
+
+    <ec2instances:Region rdf:about="#asia_pacific_singapore">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:Region>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#asia_pacific_tokyo -->
+
+    <ec2instances:Region rdf:about="#asia_pacific_tokyo">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:Region>
+    
+
+
     <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#available -->
 
     <owl:Thing rdf:about="#available">
@@ -937,6 +978,14 @@
     <ec2instances:RootDeviceType rdf:about="#ebs">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:RootDeviceType>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#eu_west_ireland -->
+
+    <owl:Thing rdf:about="#eu_west_ireland">
+        <rdf:type rdf:resource="#Region"/>
+    </owl:Thing>
     
 
 
@@ -1498,6 +1547,14 @@
     
 
 
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#south_america_brasil -->
+
+    <owl:Thing rdf:about="#south_america_brasil">
+        <rdf:type rdf:resource="#Region"/>
+    </owl:Thing>
+    
+
+
     <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#stoppedState -->
 
     <owl:Thing rdf:about="#stoppedState"/>
@@ -1591,6 +1648,30 @@
     <ec2instances:AmiState rdf:about="#unavailable">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:AmiState>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_east_virginia -->
+
+    <ec2instances:Region rdf:about="#us_east_virginia">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:Region>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_west_california -->
+
+    <ec2instances:Region rdf:about="#us_west_california">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:Region>
+    
+
+
+    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_west_oregon -->
+
+    <owl:Thing rdf:about="#us_west_oregon">
+        <rdf:type rdf:resource="#Region"/>
+    </owl:Thing>
     
 
 
