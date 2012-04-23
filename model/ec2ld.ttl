@@ -926,7 +926,7 @@ instances:belongs_to_cloud rdf:type owl:NamedIndividual ,
 
 ###  http://ec2ld.linkeddata.es/resource/c1.medium
 
-instances:c1.medium rdf:type ec2instances:EC2InstanceType ,
+instances:c1_medium rdf:type ec2instances:EC2InstanceType ,
                                 owl:NamedIndividual ,
                                 owl:Thing ;
                        
@@ -934,21 +934,21 @@ instances:c1.medium rdf:type ec2instances:EC2InstanceType ,
                        
                        ec2instances:numberOfEcu "5"^^xsd:float ;
                        
-                       ec2instances:hasDiskStorage instances:c1.medium.diskstorage ;
+                       ec2instances:hasDiskStorage instances:c1_medium_diskstorage ;
                        
-                       ec2instances:hasMemoryStorage instances:c1.medium.memorystorage ;
+                       ec2instances:hasMemoryStorage instances:c1_medium_memorystorage ;
                        
                        ec2instances:hasArchitecture instances:i386 ;
                        
-                       ec2instances:hasLinuxPricing instances:prc.c1.med.lnx ;
+                       ec2instances:hasLinuxPricing instances:prc_c1_med_lnx ;
                        
-                       ec2instances:hasWindowsPricing instances:prc.c1.med.win .
+                       ec2instances:hasWindowsPricing instances:prc_c1_med_win .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/c1.medium.diskstorage
 
-instances:c1.medium.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:c1_medium_diskstorage rdf:type ec2instances:DiskStorage ,
                                             owl:NamedIndividual ,
                                             owl:Thing ;
                                    
@@ -960,7 +960,7 @@ instances:c1.medium.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/c1.medium.memorystorage
 
-instances:c1.medium.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:c1_medium_memorystorage rdf:type ec2instances:MemoryStorage ,
                                               owl:NamedIndividual ,
                                               owl:Thing ;
                                      
@@ -972,7 +972,7 @@ instances:c1.medium.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/c1.xlarge
 
-instances:c1.xlarge rdf:type ec2instances:EC2InstanceType ,
+instances:c1_xlarge rdf:type ec2instances:EC2InstanceType ,
                                 owl:NamedIndividual ,
                                 owl:Thing ;
                        
@@ -980,13 +980,13 @@ instances:c1.xlarge rdf:type ec2instances:EC2InstanceType ,
                        
                        ec2instances:numberOfEcu "20"^^xsd:float ;
                        
-                       ec2instances:hasDiskStorage instances:c1.xlarge.diskstorage ;
+                       ec2instances:hasDiskStorage instances:c1_xlarge_diskstorage ;
                        
-                       ec2instances:hasMemoryStorage instances:c1.xlarge.memorystorage ;
+                       ec2instances:hasMemoryStorage instances:c1_xlarge_memorystorage ;
                        
-                       ec2instances:hasLinuxPricing instances:prc.c1.xlarge.lnx ;
+                       ec2instances:hasLinuxPricing instances:prc_c1_xlarge_lnx ;
                        
-                       ec2instances:hasWindowsPricing instances:prc.c1.xlarge.win ;
+                       ec2instances:hasWindowsPricing instances:prc_c1_xlarge_win ;
                        
                        ec2instances:hasArchitecture instances:x86_64 .
 
@@ -994,7 +994,7 @@ instances:c1.xlarge rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/c1.xlarge.diskstorage
 
-instances:c1.xlarge.diskstorage rdf:type instances:DiskStorage ,
+instances:c1_xlarge_diskstorage rdf:type instances:DiskStorage ,
                                             owl:NamedIndividual ,
                                             owl:Thing ;
                                    
@@ -1006,7 +1006,7 @@ instances:c1.xlarge.diskstorage rdf:type instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resourc/c1.xlarge.memorystorage
 
-instances:c1.xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:c1_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
                                               owl:NamedIndividual ,
                                               owl:Thing ;
                                      
@@ -1104,7 +1104,7 @@ instances:kernel rdf:type ec2instances:ImageType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.large
 
-instances:m1.large rdf:type ec2instances:EC2InstanceType ,
+instances:m1_large rdf:type ec2instances:EC2InstanceType ,
                                owl:NamedIndividual ,
                                owl:Thing ;
                       
@@ -1112,13 +1112,13 @@ instances:m1.large rdf:type ec2instances:EC2InstanceType ,
                       
                       ec2instances:numberOfEcu "4"^^xsd:float ;
                       
-                      ec2instances:hasDiskStorage instances:m1.large.diskstorage ;
+                      ec2instances:hasDiskStorage instances:m1_large_diskstorage ;
                       
-                      ec2instances:hasMemoryStorage instances:m1.large.memorystorage ;
+                      ec2instances:hasMemoryStorage instances:m1_large_memorystorage ;
                       
-                      ec2instances:hasLinuxPricing instances:prc.m1.large.lnx ;
+                      ec2instances:hasLinuxPricing instances:prc_m1_large_lnx ;
                       
-                      ec2instances:hasWindowsPricing instances:prc.m1.large.win ;
+                      ec2instances:hasWindowsPricing instances:prc_m1_large_win ;
                       
                       ec2instances:hasArchitecture instances:x86_64 .
 
@@ -1126,7 +1126,7 @@ instances:m1.large rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.large.diskstorage
 
-instances:m1.large.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m1_large_diskstorage rdf:type ec2instances:DiskStorage ,
                                            owl:NamedIndividual ,
                                            owl:Thing ;
                                   
@@ -1138,7 +1138,7 @@ instances:m1.large.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.large.memorystorage
 
-instances:m1.large.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m1_large_memorystorage rdf:type ec2instances:MemoryStorage ,
                                              owl:NamedIndividual ,
                                              owl:Thing ;
                                     
@@ -1150,7 +1150,7 @@ instances:m1.large.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.small
 
-instances:m1.small rdf:type ec2instances:EC2InstanceType ,
+instances:m1_small rdf:type ec2instances:EC2InstanceType ,
                                owl:NamedIndividual ,
                                owl:Thing ;
                       
@@ -1160,19 +1160,19 @@ instances:m1.small rdf:type ec2instances:EC2InstanceType ,
                       
                       ec2instances:hasArchitecture instances:i386 ;
                       
-                      ec2instances:hasDiskStorage instances:m1.small.diskstorage ;
+                      ec2instances:hasDiskStorage instances:m1_small_diskstorage ;
                       
-                      ec2instances:hasMemoryStorage instances:m1.small.memorystorage ;
+                      ec2instances:hasMemoryStorage instances:m1_small_memorystorage ;
                       
-                      ec2instances:hasLinuxPricing instances:prc.m1.small.lnx ;
+                      ec2instances:hasLinuxPricing instances:prc_m1_small_lnx ;
                       
-                      ec2instances:hasWindowsPricing instances:prc.m1.small.win .
+                      ec2instances:hasWindowsPricing instances:prc_m1_small_win .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/m1.small.diskstorage
 
-instances:m1.small.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m1_small_diskstorage rdf:type ec2instances:DiskStorage ,
                                            owl:NamedIndividual ,
                                            owl:Thing ;
                                   
@@ -1184,11 +1184,11 @@ instances:m1.small.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.small.memorystorage
 
-instances:m1.small.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m1_small_memorystorage rdf:type ec2instances:MemoryStorage ,
                                              owl:NamedIndividual ,
                                              owl:Thing ;
                                     
-                                    ec2instances:storageSize "1,7"^^xsd:float ;
+                                    ec2instances:storageSize "1.7"^^xsd:float ;
                                     
                                     ec2instances:mesuredIn instances:GB .
 
@@ -1196,7 +1196,7 @@ instances:m1.small.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.xlarge
 
-instances:m1.xlarge rdf:type ec2instances:EC2InstanceType ,
+instances:m1_xlarge rdf:type ec2instances:EC2InstanceType ,
                                 owl:NamedIndividual ,
                                 owl:Thing ;
                        
@@ -1204,13 +1204,13 @@ instances:m1.xlarge rdf:type ec2instances:EC2InstanceType ,
                        
                        ec2instances:numberOfEcu "8"^^xsd:float ;
                        
-                       ec2instances:hasDiskStorage instances:m1.xlarge.diskstorage ;
+                       ec2instances:hasDiskStorage instances:m1_xlarge_diskstorage ;
                        
-                       ec2instances:hasMemoryStorage instances:m1.xlarge.memorystorage ;
+                       ec2instances:hasMemoryStorage instances:m1_xlarge_memorystorage ;
                        
-                       ec2instances:hasLinuxPricing instances:prc.m1.xlarge.lnx ;
+                       ec2instances:hasLinuxPricing instances:prc_m1_xlarge_lnx ;
                        
-                       ec2instances:hasWindowsPricing instances:prc.m1.xlarge.win ;
+                       ec2instances:hasWindowsPricing instances:prc_m1_xlarge_win ;
                        
                        ec2instances:hasArchitecture instances:x86_64 .
 
@@ -1218,7 +1218,7 @@ instances:m1.xlarge rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.xlarge.diskstorage
 
-instances:m1.xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m1_xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
                                             owl:NamedIndividual ,
                                             owl:Thing ;
                                    
@@ -1230,7 +1230,7 @@ instances:m1.xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m1.xlarge.memorystorage
 
-instances:m1.xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m1_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
                                               owl:NamedIndividual ,
                                               owl:Thing ;
                                      
@@ -1242,19 +1242,19 @@ instances:m1.xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.2xlarge
 
-instances:m2.2xlarge rdf:type ec2instances:EC2InstanceType ,
+instances:m2_2xlarge rdf:type ec2instances:EC2InstanceType ,
                                  owl:NamedIndividual ,
                                  owl:Thing ;
                         
                         ec2instances:numberOfEcu "13"^^xsd:float ;
                         
-                        ec2instances:hasDiskStorage instances:m2.2xlarge.diskstorage ;
+                        ec2instances:hasDiskStorage instances:m2_2xlarge_diskstorage ;
                         
-                        ec2instances:hasMemoryStorage instances:m2.2xlarge.memorystorage ;
+                        ec2instances:hasMemoryStorage instances:m2_2xlarge_memorystorage ;
                         
-                        ec2instances:hasLinuxPricing instances:prc.m2.2xlarge.lnx ;
+                        ec2instances:hasLinuxPricing instances:prc_m2_2xlarge_lnx ;
                         
-                        ec2instances:hasWindowsPricing instances:prc.m2.2xlarge.win ;
+                        ec2instances:hasWindowsPricing instances:prc_m2_2xlarge_win ;
                         
                         ec2instances:hasArchitecture instances:x86_64 .
 
@@ -1262,7 +1262,7 @@ instances:m2.2xlarge rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.2xlarge.diskstorage
 
-instances:m2.2xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m2_2xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
                                              owl:NamedIndividual ,
                                              owl:Thing ;
                                     
@@ -1274,7 +1274,7 @@ instances:m2.2xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.2xlarge.memorystorage
 
-instances:m2.2xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m2_2xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
                                                owl:NamedIndividual ,
                                                owl:Thing ;
                                       
@@ -1286,18 +1286,18 @@ instances:m2.2xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.4xlarge
 
-instances:m2.4xlarge rdf:type ec2instances:EC2InstanceType ,
+instances:m2_4xlarge rdf:type ec2instances:EC2InstanceType ,
                                  owl:NamedIndividual ,
                                  owl:Thing ;
                         
                         ec2instances:numberOfEcu "26"^^xsd:float ;
                         
-                        ec2instances:hasMemoryStorage instances:m2.4xlarge.diskstorage ,
-                                                      instances:m2.4xlarge.memorystorage ;
+                        ec2instances:hasMemoryStorage instances:m2_4xlarge_diskstorage ,
+                                                      instances:m2_4xlarge_memorystorage ;
                         
-                        ec2instances:hasWindowsPricing instances:prc.m2.2xlarge.win ;
+                        ec2instances:hasWindowsPricing instances:prc_m2_2xlarge_win ;
                         
-                        ec2instances:hasLinuxPricing instances:prc.m2.4xlarge.lnx ;
+                        ec2instances:hasLinuxPricing instances:prc_m2_4xlarge_lnx ;
                         
                         ec2instances:hasArchitecture instances:x86_64 .
 
@@ -1305,7 +1305,7 @@ instances:m2.4xlarge rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.4xlarge.diskstorage
 
-instances:m2.4xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m2_4xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
                                              owl:NamedIndividual ,
                                              owl:Thing ;
                                     
@@ -1317,7 +1317,7 @@ instances:m2.4xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.4xlarge.memorystorage
 
-instances:m2.4xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m2_4xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
                                                owl:NamedIndividual ,
                                                owl:Thing ;
                                       
@@ -1329,19 +1329,19 @@ instances:m2.4xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.xlarge
 
-instances:m2.xlarge rdf:type ec2instances:EC2InstanceType ,
+instances:m2_xlarge rdf:type ec2instances:EC2InstanceType ,
                                 owl:NamedIndividual ,
                                 owl:Thing ;
                        
                        ec2instances:numberOfEcu "6.5"^^xsd:float ;
                        
-                       ec2instances:hasMemoryStorage instances:m2.xlarge.diskstorage ;
+                       ec2instances:hasMemoryStorage instances:m2_xlarge_diskstorage ;
                        
-                       ec2instances:hasDiskStorage instances:m2.xlarge.memorystorage ;
+                       ec2instances:hasDiskStorage instances:m2_xlarge_memorystorage ;
                        
-                       ec2instances:hasLinuxPricing instances:prc.m2.xlarge.lnx ;
+                       ec2instances:hasLinuxPricing instances:prc_m2_xlarge_lnx ;
                        
-                       ec2instances:hasWindowsPricing instances:prc.m2.xlarge.win ;
+                       ec2instances:hasWindowsPricing instances:prc_m2_xlarge_win ;
                        
                        ec2instances:hasArchitecture instances:x86_64 .
 
@@ -1349,7 +1349,7 @@ instances:m2.xlarge rdf:type ec2instances:EC2InstanceType ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.xlarge.diskstorage
 
-instances:m2.xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:m2_xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
                                             owl:NamedIndividual ,
                                             owl:Thing ;
                                    
@@ -1361,11 +1361,11 @@ instances:m2.xlarge.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/m2.xlarge.memorystorage
 
-instances:m2.xlarge.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:m2_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
                                               owl:NamedIndividual ,
                                               owl:Thing ;
                                      
-                                     ec2instances:storageSize "17,1"^^xsd:float ;
+                                     ec2instances:storageSize "17.1"^^xsd:float ;
                                      
                                      ec2instances:mesuredIn instances:GB .
 
@@ -1419,7 +1419,7 @@ instances:pendingState rdf:type owl:NamedIndividual ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.c1.med.lnx
 
-instances:prc.c1.med.lnx rdf:type ec2instances:Pricing ,
+instances:prc_c1_med_lnx rdf:type ec2instances:Pricing ,
                                      owl:NamedIndividual ,
                                      owl:Thing ;
                             
@@ -1429,7 +1429,7 @@ instances:prc.c1.med.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.c1.med.win
 
-instances:prc.c1.med.win rdf:type ec2instances:Pricing ,
+instances:prc_c1_med_win rdf:type ec2instances:Pricing ,
                                      owl:NamedIndividual ,
                                      owl:Thing ;
                             
@@ -1439,7 +1439,7 @@ instances:prc.c1.med.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.lnx
 
-instances:prc.c1.xlarge.lnx rdf:type ec2instances:Pricing ,
+instances:prc_c1_xlarge_lnx rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1449,7 +1449,7 @@ instances:prc.c1.xlarge.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.win
 
-instances:prc.c1.xlarge.win rdf:type ec2instances:Pricing ,
+instances:prc_c1_xlarge_win rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1459,7 +1459,7 @@ instances:prc.c1.xlarge.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.large.lnx
 
-instances:prc.m1.large.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m1_large_lnx rdf:type ec2instances:Pricing ,
                                        owl:NamedIndividual ,
                                        owl:Thing ;
                               
@@ -1469,7 +1469,7 @@ instances:prc.m1.large.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.large.win
 
-instances:prc.m1.large.win rdf:type ec2instances:Pricing ,
+instances:prc_m1_large_win rdf:type ec2instances:Pricing ,
                                        owl:NamedIndividual ,
                                        owl:Thing ;
                               
@@ -1479,7 +1479,7 @@ instances:prc.m1.large.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.small.lnx
 
-instances:prc.m1.small.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m1_small_lnx rdf:type ec2instances:Pricing ,
                                        owl:NamedIndividual ,
                                        owl:Thing ;
                               
@@ -1489,7 +1489,7 @@ instances:prc.m1.small.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.small.win
 
-instances:prc.m1.small.win rdf:type ec2instances:Pricing ,
+instances:prc_m1_small_win rdf:type ec2instances:Pricing ,
                                        owl:NamedIndividual ,
                                        owl:Thing ;
                               
@@ -1499,7 +1499,7 @@ instances:prc.m1.small.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.lnx
 
-instances:prc.m1.xlarge.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m1_xlarge_lnx rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1509,7 +1509,7 @@ instances:prc.m1.xlarge.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.win
 
-instances:prc.m1.xlarge.win rdf:type ec2instances:Pricing ,
+instances:prc_m1_xlarge_win rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1519,7 +1519,7 @@ instances:prc.m1.xlarge.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.lnx
 
-instances:prc.m2.2xlarge.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m2_2xlarge_lnx rdf:type ec2instances:Pricing ,
                                          owl:NamedIndividual ,
                                          owl:Thing ;
                                 
@@ -1529,7 +1529,7 @@ instances:prc.m2.2xlarge.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win
 
-instances:prc.m2.2xlarge.win rdf:type ec2instances:Pricing ,
+instances:prc_m2_2xlarge_win rdf:type ec2instances:Pricing ,
                                          owl:NamedIndividual ,
                                          owl:Thing ;
                                 
@@ -1539,7 +1539,7 @@ instances:prc.m2.2xlarge.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.lnx
 
-instances:prc.m2.4xlarge.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m2_4xlarge_lnx rdf:type ec2instances:Pricing ,
                                          owl:NamedIndividual ,
                                          owl:Thing ;
                                 
@@ -1549,7 +1549,7 @@ instances:prc.m2.4xlarge.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.win
 
-instances:prc.m2.4xlarge.win rdf:type ec2instances:Pricing ,
+instances:prc_m2_4xlarge_win rdf:type ec2instances:Pricing ,
                                          owl:NamedIndividual ,
                                          owl:Thing ;
                                 
@@ -1559,7 +1559,7 @@ instances:prc.m2.4xlarge.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.lnx
 
-instances:prc.m2.xlarge.lnx rdf:type ec2instances:Pricing ,
+instances:prc_m2_xlarge_lnx rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1569,7 +1569,7 @@ instances:prc.m2.xlarge.lnx rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.win
 
-instances:prc.m2.xlarge.win rdf:type ec2instances:Pricing ,
+instances:prc_m2_xlarge_win rdf:type ec2instances:Pricing ,
                                         owl:NamedIndividual ,
                                         owl:Thing ;
                                
@@ -1579,7 +1579,7 @@ instances:prc.m2.xlarge.win rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux
 
-instances:prc.t1.micro.linux rdf:type ec2instances:Pricing ,
+instances:prc_t1_micro_linux rdf:type ec2instances:Pricing ,
                                          owl:NamedIndividual ,
                                          owl:Thing ;
                                 
@@ -1589,7 +1589,7 @@ instances:prc.t1.micro.linux rdf:type ec2instances:Pricing ,
 
 ###  http://ec2ld.linkeddata.es/resource/prc.t1.micro.win
 
-instances:prc.t1.micro.win rdf:type ec2instances:Pricing ,
+instances:prc_t1_micro_win rdf:type ec2instances:Pricing ,
                                        owl:NamedIndividual ,
                                        owl:Thing ;
                               
@@ -1647,7 +1647,7 @@ instances:suseLinux rdf:type ec2instances:Linux ,
 
 ###  http://ec2ld.linkeddata.es/resource/t1.micro
 
-instances:t1.micro rdf:type ec2instances:EC2InstanceType ,
+instances:t1_micro rdf:type ec2instances:EC2InstanceType ,
                                owl:NamedIndividual ,
                                owl:Thing ;
                       
@@ -1655,19 +1655,19 @@ instances:t1.micro rdf:type ec2instances:EC2InstanceType ,
                       
                       ec2instances:hasArchitecture instances:i386 ;
                       
-                      ec2instances:hasLinuxPricing instances:prc.t1.micro.linux ;
+                      ec2instances:hasLinuxPricing instances:prc_t1_micro_linux ;
                       
-                      ec2instances:hasWindowsPricing instances:prc.t1.micro.win ;
+                      ec2instances:hasWindowsPricing instances:prc_t1_micro_win ;
                       
-                      ec2instances:hasDiskStorage instances:t1.micro.diskstorage ;
+                      ec2instances:hasDiskStorage instances:t1_micro_diskstorage ;
                       
-                      ec2instances:hasMemoryStorage instances:t1.micro.memorystorage .
+                      ec2instances:hasMemoryStorage instances:t1_micro_memorystorage .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage
 
-instances:t1.micro.diskstorage rdf:type ec2instances:DiskStorage ,
+instances:t1_micro_diskstorage rdf:type ec2instances:DiskStorage ,
                                            owl:NamedIndividual ,
                                            owl:Thing ;
                                   
@@ -1679,7 +1679,7 @@ instances:t1.micro.diskstorage rdf:type ec2instances:DiskStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage
 
-instances:t1.micro.memorystorage rdf:type ec2instances:MemoryStorage ,
+instances:t1_micro_memorystorage rdf:type ec2instances:MemoryStorage ,
                                              owl:NamedIndividual ,
                                              owl:Thing ;
                                     
@@ -1691,19 +1691,19 @@ instances:t1.micro.memorystorage rdf:type ec2instances:MemoryStorage ,
 
 ###  http://ec2ld.linkeddata.es/resource/t1.micro.x86_64
 
-instances:t1.micro.x86_64 rdf:type ec2instances:EC2InstanceType ,
+instances:t1_micro_x86_64 rdf:type ec2instances:EC2InstanceType ,
                                       owl:NamedIndividual ,
                                       owl:Thing ;
                              
                              ec2instances:numberOfEcu "2"^^xsd:float ;
                              
-                             ec2instances:hasLinuxPricing instances:prc.t1.micro.linux ;
+                             ec2instances:hasLinuxPricing instances:prc_t1_micro_linux ;
                              
-                             ec2instances:hasWindowsPricing instances:prc.t1.micro.win ;
+                             ec2instances:hasWindowsPricing instances:prc_t1_micro_win ;
                              
-                             ec2instances:hasDiskStorage instances:t1.micro.diskstorage ;
+                             ec2instances:hasDiskStorage instances:t1_micro_diskstorage ;
                              
-                             ec2instances:hasMemoryStorage instances:t1.micro.memorystorage ;
+                             ec2instances:hasMemoryStorage instances:t1_micro_memorystorage ;
                              
                              ec2instances:hasArchitecture instances:x86_64 .
 
