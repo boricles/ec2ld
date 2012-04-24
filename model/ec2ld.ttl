@@ -1,38 +1,27 @@
-@prefix ec2instances: <http://ec2ld.linkeddata.es/ontology/> .
-@prefix instances: <http://ec2ld.linkeddata.es/resource/> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix sp: <http://spinrdf.org/sp#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
-@prefix spl: <http://spinrdf.org/spl#> .
-@prefix : <http://ec2ld.linkeddata.es/ontology/mappings/> .
-@prefix opennebula: <http://ec2ld.linkeddata.es/ontology/opennebula/> .
-@prefix mappings: <http://ec2ld.linkeddata.es/ontology/mappings/> .
-@prefix cloud: <http://ec2ld.linkeddata.es/ontology/cloud/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix spin: <http://spinrdf.org/spin#> .
-@base <http://ec2ld.linkeddata.es/ontology/> .
+@prefix : <http://ec2ld.linkeddata.es/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix resource: <http://ec2ld.linkeddata.es/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ontology: <http://ec2ld.linkeddata.es/ontology/> .
+@base <http://ec2ld.linkeddata.es/ontology/> .
 
 <http://ec2ld.linkeddata.es/ontology/> rdf:type owl:Ontology ;
                                        
                                        owl:versionInfo "0.1"^^xsd:string ;
                                        
                                        rdfs:comment "Unified Cloud Ontology"^^xsd:string ;
-
-										dc:modified "2012-04-20"^^xsd:date ;
-
-							            dc:title "EC2 Vocabulary" ;
-
-							            dc:description """This vocabulary defines a set of metadata elements for modelling the ec2 vms.
+                                       
+                                       dc:description """This vocabulary defines a set of metadata elements for modelling the ec2 vms.
 							""" ;
-
-							            foaf:page <http://mccarthy.dia.fi.upm.es/ec2ld/model/> ;
-
-							            dc:creator instances:IdafenSantaAna  .
+                                       
+                                       dc:title "EC2 Vocabulary" ;
+                                       
+                                       dc:creator resource:IdafenSantana .
 
 
 #################################################################
@@ -42,15 +31,9 @@
 #################################################################
 
 
-
-
-#################################################################
-#
-#    Datatypes
-#
-#################################################################
-
-
+dc:title rdf:type owl:AnnotationProperty .
+dc:description rdf:type owl:AnnotationProperty .
+dc:creator rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -62,234 +45,228 @@
 
 ###  http://ec2ld.linkeddata.es/ontology/belongsToRegion
 
-ec2instances:belongsToRegion rdf:type owl:FunctionalProperty ,
-                                      owl:ObjectProperty ;
-                             
-                             rdfs:domain ec2instances:Ami ;
-                             
-                             rdfs:range ec2instances:Region .
+:belongsToRegion rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+                 
+                 rdfs:domain :Ami ;
+                 
+                 rdfs:range :Region .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/couldBeBasedOn
 
-ec2instances:couldBeBasedOn rdf:type owl:ObjectProperty ;
-                            
-                            rdfs:domain ec2instances:Ami ;
-                            
-                            rdfs:range ec2instances:EC2InstanceType .
+:couldBeBasedOn rdf:type owl:ObjectProperty ;
+                
+                rdfs:domain :Ami ;
+                
+                rdfs:range :EC2InstanceType .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasArchitecture
 
-ec2instances:hasArchitecture rdf:type owl:FunctionalProperty ,
-                                      owl:ObjectProperty ;
-                             
-                             rdfs:range ec2instances:Architecture ;
-                             
-                             rdfs:domain [ rdf:type owl:Class ;
-                                           owl:unionOf ( ec2instances:Ami
-                                                         ec2instances:EC2InstanceType
-                                                       )
-                                         ] .
+:hasArchitecture rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+                 
+                 rdfs:range :Architecture ;
+                 
+                 rdfs:domain :genid0 .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasBlockDevice
 
-ec2instances:hasBlockDevice rdf:type owl:ObjectProperty ;
-                            
-                            rdfs:domain ec2instances:Ami ;
-                            
-                            rdfs:range ec2instances:BlockDevice .
+:hasBlockDevice rdf:type owl:ObjectProperty ;
+                
+                rdfs:domain :Ami ;
+                
+                rdfs:range :BlockDevice .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasDiskStorage
 
-ec2instances:hasDiskStorage rdf:type owl:ObjectProperty ;
-                            
-                            rdfs:subPropertyOf ec2instances:hasStorage .
+:hasDiskStorage rdf:type owl:ObjectProperty ;
+                
+                rdfs:subPropertyOf :hasStorage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasLinuxPricing
 
-ec2instances:hasLinuxPricing rdf:type owl:FunctionalProperty ,
-                                      owl:ObjectProperty ;
-                             
-                             rdfs:range ec2instances:Pricing ;
-                             
-                             rdfs:domain [ rdf:type owl:Class ;
-                                           owl:unionOf ( ec2instances:Ami
-                                                         ec2instances:EC2InstanceType
-                                                       )
-                                         ] .
+:hasLinuxPricing rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+                 
+                 rdfs:range :Pricing ;
+                 
+                 rdfs:domain :genid3 .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasMemoryStorage
 
-ec2instances:hasMemoryStorage rdf:type owl:ObjectProperty ;
-                              
-                              rdfs:subPropertyOf ec2instances:hasStorage .
+:hasMemoryStorage rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:subPropertyOf :hasStorage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasOwner
 
-ec2instances:hasOwner rdf:type owl:FunctionalProperty ,
-                               owl:ObjectProperty ;
-                      
-                      rdfs:domain ec2instances:Ami ;
-                      
-                      rdfs:range ec2instances:Owner .
+:hasOwner rdf:type owl:FunctionalProperty ,
+                   owl:ObjectProperty ;
+          
+          rdfs:domain :Ami ;
+          
+          rdfs:range :Owner .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasRootDevice
 
-ec2instances:hasRootDevice rdf:type owl:FunctionalProperty ,
-                                    owl:ObjectProperty ;
-                           
-                           rdfs:domain ec2instances:Ami ;
-                           
-                           rdfs:range ec2instances:RootDevice .
+:hasRootDevice rdf:type owl:FunctionalProperty ,
+                        owl:ObjectProperty ;
+               
+               rdfs:domain :Ami ;
+               
+               rdfs:range :RootDevice .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasRootDeviceType
 
-ec2instances:hasRootDeviceType rdf:type owl:FunctionalProperty ,
-                                        owl:ObjectProperty ;
-                               
-                               rdfs:domain ec2instances:RootDevice ;
-                               
-                               rdfs:range ec2instances:RootDeviceType .
+:hasRootDeviceType rdf:type owl:FunctionalProperty ,
+                            owl:ObjectProperty ;
+                   
+                   rdfs:domain :RootDevice ;
+                   
+                   rdfs:range :RootDeviceType .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasStorage
 
-ec2instances:hasStorage rdf:type owl:ObjectProperty ;
-                        
-                        rdfs:domain ec2instances:EC2InstanceType ;
-                        
-                        rdfs:range ec2instances:Storage .
+:hasStorage rdf:type owl:ObjectProperty ;
+            
+            rdfs:domain :EC2InstanceType ;
+            
+            rdfs:range :Storage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasVirtualizationType
 
-ec2instances:hasVirtualizationType rdf:type owl:FunctionalProperty ,
-                                            owl:ObjectProperty ;
-                                   
-                                   rdfs:domain ec2instances:Ami ;
-                                   
-                                   rdfs:range ec2instances:VirtualizationType .
+:hasVirtualizationType rdf:type owl:FunctionalProperty ,
+                                owl:ObjectProperty ;
+                       
+                       rdfs:domain :Ami ;
+                       
+                       rdfs:range :VirtualizationType .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasVisibility
 
-ec2instances:hasVisibility rdf:type owl:FunctionalProperty ,
-                                    owl:ObjectProperty ;
-                           
-                           rdfs:domain ec2instances:Ami ;
-                           
-                           rdfs:range ec2instances:Visibility .
+:hasVisibility rdf:type owl:FunctionalProperty ,
+                        owl:ObjectProperty ;
+               
+               rdfs:domain :Ami ;
+               
+               rdfs:range :Visibility .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasWindowsPricing
 
-ec2instances:hasWindowsPricing rdf:type owl:FunctionalProperty ,
-                                        owl:ObjectProperty ;
-                               
-                               rdfs:range ec2instances:Pricing ;
-                               
-                               rdfs:domain [ rdf:type owl:Class ;
-                                             owl:unionOf ( ec2instances:Ami
-                                                           ec2instances:EC2InstanceType
-                                                         )
-                                           ] .
+:hasWindowsPricing rdf:type owl:FunctionalProperty ,
+                            owl:ObjectProperty ;
+                   
+                   rdfs:range :Pricing ;
+                   
+                   rdfs:domain :genid6 .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hypervisor
 
-ec2instances:hypervisor rdf:type owl:FunctionalProperty ,
-                                 owl:ObjectProperty ;
-                        
-                        rdfs:domain ec2instances:Ami ;
-                        
-                        rdfs:range ec2instances:HypervisorType .
+:hypervisor rdf:type owl:FunctionalProperty ,
+                     owl:ObjectProperty ;
+            
+            rdfs:domain :Ami ;
+            
+            rdfs:range :HypervisorType .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/imageSize
 
-ec2instances:imageSize rdf:type owl:FunctionalProperty ,
-                                owl:ObjectProperty ;
-                       
-                       rdfs:domain ec2instances:Ami ;
-                       
-                       rdfs:range ec2instances:DiskStorage .
+:imageSize rdf:type owl:FunctionalProperty ,
+                    owl:ObjectProperty ;
+           
+           rdfs:domain :Ami ;
+           
+           rdfs:range :DiskStorage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/imageType
 
-ec2instances:imageType rdf:type owl:FunctionalProperty ,
-                                owl:ObjectProperty ;
-                       
-                       rdfs:domain ec2instances:Ami ;
-                       
-                       rdfs:range ec2instances:ImageType .
+:imageType rdf:type owl:FunctionalProperty ,
+                    owl:ObjectProperty ;
+           
+           rdfs:domain :Ami ;
+           
+           rdfs:range :ImageType .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/mesuredIn
 
-ec2instances:mesuredIn rdf:type owl:FunctionalProperty ,
-                                owl:ObjectProperty ;
-                       
-                       rdfs:range ec2instances:InformationUnit ;
-                       
-                       rdfs:domain ec2instances:Storage .
+:mesuredIn rdf:type owl:FunctionalProperty ,
+                    owl:ObjectProperty ;
+           
+           rdfs:range :InformationUnit ;
+           
+           rdfs:domain :Storage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/platformOS
 
-ec2instances:platformOS rdf:type owl:FunctionalProperty ,
-                                 owl:ObjectProperty ;
-                        
-                        rdfs:domain ec2instances:Ami ;
-                        
-                        rdfs:range ec2instances:OS .
+:platformOS rdf:type owl:FunctionalProperty ,
+                     owl:ObjectProperty ;
+            
+            rdfs:domain :Ami ;
+            
+            rdfs:range :OS .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/sameAmiAs
 
-ec2instances:sameAmiAs rdf:type owl:ObjectProperty ;
-                       
-                       rdfs:range ec2instances:Ami ;
-                       
-                       rdfs:domain ec2instances:Ami .
+:sameAmiAs rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Ami ;
+           
+           rdfs:range :Ami .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/volumeSize
 
-ec2instances:volumeSize rdf:type owl:FunctionalProperty ,
-                                 owl:ObjectProperty ;
-                        
-                        rdfs:domain ec2instances:BlockDevice ;
-                        
-                        rdfs:range ec2instances:DiskStorage .
+:volumeSize rdf:type owl:FunctionalProperty ,
+                     owl:ObjectProperty ;
+            
+            rdfs:domain :BlockDevice ;
+            
+            rdfs:range :DiskStorage .
+
+
+
+###  http://xmlns.com/foaf/0.1/page
+
+foaf:page rdf:type owl:ObjectProperty .
 
 
 
@@ -304,152 +281,155 @@ ec2instances:volumeSize rdf:type owl:FunctionalProperty ,
 
 ###  http://ec2ld.linkeddata.es/ontology/amountPerHour
 
-ec2instances:amountPerHour rdf:type owl:DatatypeProperty ,
-                                    owl:FunctionalProperty ;
-                           
-                           rdfs:domain ec2instances:Pricing ;
-                           
-                           rdfs:range xsd:float .
+:amountPerHour rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:domain :Pricing ;
+               
+               rdfs:range xsd:float .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/deleteOnTermination
 
-ec2instances:deleteOnTermination rdf:type owl:DatatypeProperty ,
-                                          owl:FunctionalProperty ;
-                                 
-                                 rdfs:domain ec2instances:BlockDevice ;
-                                 
-                                 rdfs:range xsd:boolean .
+:deleteOnTermination rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     
+                     rdfs:domain :BlockDevice ;
+                     
+                     rdfs:range xsd:boolean .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasDescription
 
-ec2instances:hasDescription rdf:type owl:DatatypeProperty ,
-                                     owl:FunctionalProperty ;
-                            
-                            rdfs:domain ec2instances:Ami ;
-                            
-                            rdfs:range xsd:string .
+:hasDescription rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                
+                rdfs:domain :Ami ;
+                
+                rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasDeviceName
 
-ec2instances:hasDeviceName rdf:type owl:DatatypeProperty ,
-                                    owl:FunctionalProperty ;
-                           
-                           rdfs:domain ec2instances:BlockDevice ;
-                           
-                           rdfs:range xsd:string .
+:hasDeviceName rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:domain :BlockDevice ;
+               
+               rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasId
 
-ec2instances:hasId rdf:type owl:DatatypeProperty ,
-                            owl:FunctionalProperty ;
-                   
-                   rdfs:range xsd:string ;
-                   
-                   rdfs:domain [ rdf:type owl:Class ;
-                                 owl:unionOf ( ec2instances:Ami
-                                               ec2instances:Owner
-                                             )
-                               ] .
+:hasId rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       
+       rdfs:domain :genid9 ;
+       
+       rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasKernelId
 
-ec2instances:hasKernelId rdf:type owl:DatatypeProperty ,
-                                  owl:FunctionalProperty ;
-                         
-                         rdfs:domain ec2instances:Ami ;
-                         
-                         rdfs:range xsd:string .
+:hasKernelId rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             
+             rdfs:domain :Ami ;
+             
+             rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasName
 
-ec2instances:hasName rdf:type owl:DatatypeProperty ,
-                              owl:FunctionalProperty ;
-                     
-                     rdfs:range xsd:string ;
-                     
-                     rdfs:domain [ rdf:type owl:Class ;
-                                   owl:unionOf ( ec2instances:Ami
-                                                 ec2instances:Owner
-                                                 ec2instances:RootDevice
-                                               )
-                                 ] .
+:hasName rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         
+         rdfs:domain :genid12 ;
+         
+         rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasProductCode
 
-ec2instances:hasProductCode rdf:type owl:DatatypeProperty ;
-                            
-                            rdfs:domain ec2instances:Ami ;
-                            
-                            rdfs:range xsd:string .
+:hasProductCode rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :Ami ;
+                
+                rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasRootDeviceName
 
-ec2instances:hasRootDeviceName rdf:type owl:DatatypeProperty ,
-                                        owl:FunctionalProperty ;
-                               
-                               rdfs:domain ec2instances:RootDevice ;
-                               
-                               rdfs:range xsd:string .
+:hasRootDeviceName rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   
+                   rdfs:domain :RootDevice ;
+                   
+                   rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/hasSnapshotId
 
-ec2instances:hasSnapshotId rdf:type owl:DatatypeProperty ,
-                                    owl:FunctionalProperty ;
-                           
-                           rdfs:domain ec2instances:BlockDevice ;
-                           
-                           rdfs:range xsd:string .
+:hasSnapshotId rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:domain :BlockDevice ;
+               
+               rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/numberOfEcu
 
-ec2instances:numberOfEcu rdf:type owl:DatatypeProperty ,
-                                  owl:FunctionalProperty ;
-                         
-                         rdfs:domain ec2instances:EC2InstanceType ;
-                         
-                         rdfs:range xsd:float .
+:numberOfEcu rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             
+             rdfs:domain :EC2InstanceType ;
+             
+             rdfs:range xsd:float .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/source
 
-ec2instances:source rdf:type owl:DatatypeProperty ,
-                             owl:FunctionalProperty ;
-                    
-                    rdfs:domain ec2instances:Ami ;
-                    
-                    rdfs:range xsd:string .
+:source rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        
+        rdfs:domain :Ami ;
+        
+        rdfs:range xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/storageSize
 
-ec2instances:storageSize rdf:type owl:DatatypeProperty ,
-                                  owl:FunctionalProperty ;
-                         
-                         rdfs:domain ec2instances:Storage ;
-                         
-                         rdfs:range xsd:float .
+:storageSize rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             
+             rdfs:domain :Storage ;
+             
+             rdfs:range xsd:float .
+
+
+
+###  http://purl.org/dc/elements/1.1/modified
+
+dc:modified rdf:type owl:DatatypeProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/name
+
+foaf:name rdf:type owl:DatatypeProperty .
 
 
 
@@ -464,205 +444,301 @@ ec2instances:storageSize rdf:type owl:DatatypeProperty ,
 
 ###  http://ec2ld.linkeddata.es/ontology/Ami
 
-ec2instances:Ami rdf:type owl:Class .
+:Ami rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/AmiState
 
-ec2instances:AmiState rdf:type owl:Class ;
-                      
-                      rdfs:subClassOf ec2instances:State .
+:AmiState rdf:type owl:Class ;
+          
+          rdfs:subClassOf :State .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Architecture
 
-ec2instances:Architecture rdf:type owl:Class .
+:Architecture rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/BlockDevice
 
-ec2instances:BlockDevice rdf:type owl:Class .
+:BlockDevice rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Cloud
 
-ec2instances:Cloud rdf:type owl:Class .
+:Cloud rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/DiskStorage
 
-ec2instances:DiskStorage rdf:type owl:Class ;
-                         
-                         rdfs:subClassOf ec2instances:Storage .
+:DiskStorage rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Storage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/EC2Cloud
 
-ec2instances:EC2Cloud rdf:type owl:Class ;
-                      
-                      rdfs:label "Amazon EC2 Cloud"^^xsd:string ;
-                      
-                      rdfs:subClassOf ec2instances:IaasCloud ;
-                      
-                      rdfs:comment ""^^xsd:string .
+:EC2Cloud rdf:type owl:Class ;
+          
+          rdfs:label "Amazon EC2 Cloud"^^xsd:string ;
+          
+          rdfs:subClassOf :IaasCloud ;
+          
+          rdfs:comment ""^^xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/EC2InstanceType
 
-ec2instances:EC2InstanceType rdf:type owl:Class ;
-                             
-                             rdfs:label "Instance type"^^xsd:string .
+:EC2InstanceType rdf:type owl:Class ;
+                 
+                 rdfs:label "Instance type"^^xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/HypervisorType
 
-ec2instances:HypervisorType rdf:type owl:Class .
+:HypervisorType rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/IaasCloud
 
-ec2instances:IaasCloud rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf ec2instances:Cloud ;
-                       
-                       rdfs:comment "Infrastructure as a service cloud"^^xsd:string .
+:IaasCloud rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Cloud ;
+           
+           rdfs:comment "Infrastructure as a service cloud"^^xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/ImageType
 
-ec2instances:ImageType rdf:type owl:Class .
+:ImageType rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/InformationUnit
 
-ec2instances:InformationUnit rdf:type owl:Class ;
-                             
-                             rdfs:subClassOf owl:Thing .
+:InformationUnit rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Linux
 
-ec2instances:Linux rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf ec2instances:OS .
+:Linux rdf:type owl:Class ;
+       
+       rdfs:subClassOf :OS .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/MemoryStorage
 
-ec2instances:MemoryStorage rdf:type owl:Class ;
-                           
-                           rdfs:subClassOf ec2instances:Storage .
+:MemoryStorage rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Storage .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/OS
 
-ec2instances:OS rdf:type owl:Class .
+:OS rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Owner
 
-ec2instances:Owner rdf:type owl:Class .
+:Owner rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/PaasCloud
 
-ec2instances:PaasCloud rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf ec2instances:Cloud ;
-                       
-                       rdfs:comment "Platform as a service cloud"^^xsd:string .
+:PaasCloud rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Cloud ;
+           
+           rdfs:comment "Platform as a service cloud"^^xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Pricing
 
-ec2instances:Pricing rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf owl:Thing .
+:Pricing rdf:type owl:Class ;
+         
+         rdfs:subClassOf owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Region
 
-ec2instances:Region rdf:type owl:Class .
+:Region rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/RootDevice
 
-ec2instances:RootDevice rdf:type owl:Class .
+:RootDevice rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/RootDeviceType
 
-ec2instances:RootDeviceType rdf:type owl:Class .
+:RootDeviceType rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/SaasCloud
 
-ec2instances:SaasCloud rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf ec2instances:Cloud ;
-                       
-                       rdfs:comment "Software as a service cloud"^^xsd:string .
+:SaasCloud rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Cloud ;
+           
+           rdfs:comment "Software as a service cloud"^^xsd:string .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/State
 
-ec2instances:State rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf owl:Thing .
+:State rdf:type owl:Class ;
+       
+       rdfs:subClassOf owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Storage
 
-ec2instances:Storage rdf:type owl:Class .
+:Storage rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/VirtualizationType
 
-ec2instances:VirtualizationType rdf:type owl:Class .
+:VirtualizationType rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Visibility
 
-ec2instances:Visibility rdf:type owl:Class .
+:Visibility rdf:type owl:Class .
 
 
 
 ###  http://ec2ld.linkeddata.es/ontology/Windows
 
-ec2instances:Windows rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf ec2instances:OS .
+:Windows rdf:type owl:Class ;
+         
+         rdfs:subClassOf :OS .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid0
+
+:genid0 rdf:type owl:Class ;
+        
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Ami
+                                            :EC2InstanceType
+                                          )
+                            ] .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid10
+
+:genid10 rdf:type owl:Class ;
+         
+         owl:equivalentClass :genid6 ,
+                             [ rdf:type owl:Class ;
+                               owl:unionOf ( :Ami
+                                             :EC2InstanceType
+                                           )
+                             ] .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid12
+
+:genid12 rdf:type owl:Class ;
+         
+         owl:equivalentClass :genid3 .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid13
+
+:genid13 rdf:type owl:Class ;
+         
+         owl:equivalentClass :genid9 ,
+                             [ rdf:type owl:Class ;
+                               owl:unionOf ( :Ami
+                                             :Owner
+                                           )
+                             ] .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid3
+
+:genid3 rdf:type owl:Class ;
+        
+        owl:equivalentClass :genid7 ,
+                            [ rdf:type owl:Class ;
+                              owl:unionOf ( :Ami
+                                            :Owner
+                                            :RootDevice
+                                          )
+                            ] .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid6
+
+:genid6 rdf:type owl:Class .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid7
+
+:genid7 rdf:type owl:Class ;
+        
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Ami
+                                            :EC2InstanceType
+                                          )
+                            ] .
+
+
+
+###  http://ec2ld.linkeddata.es/ontology/genid9
+
+:genid9 rdf:type owl:Class .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/DiskStorage
+
+resource:DiskStorage rdf:type owl:Class .
 
 
 
 ###  http://www.w3.org/2002/07/owl#Thing
 
 owl:Thing rdf:type owl:Class .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class .
 
 
 
@@ -675,1111 +751,1018 @@ owl:Thing rdf:type owl:Class .
 #################################################################
 
 
-instances:IdafenSantaAna rdf:type owl:NamedIndividual ,
-                                      foaf:Person ;
-                             
-                        foaf:name "Idafen Santa Ana" ;
-                             
-                        foaf:mbox <mailto:idafensp@gmail.com> .
+###  http://ec2ld.linkeddata.es/ontology/
+
+<http://ec2ld.linkeddata.es/ontology/> rdf:type owl:Thing ;
+                                       
+                                       dc:modified "2012-04-20"^^xsd:date ;
+                                       
+                                       foaf:page <http://mccarthy.dia.fi.upm.es/ec2ld/model/> .
+
+
 
 ###  http://ec2ld.linkeddata.es/resource/ActivityBusy
 
-instances:ActivityBusy rdf:type owl:NamedIndividual ,
-                                   owl:Thing .
+resource:ActivityBusy rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ActivityIdle
 
-instances:ActivityIdle rdf:type owl:NamedIndividual ,
-                                   owl:Thing .
+resource:ActivityIdle rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ActivitySuspended
 
-instances:ActivitySuspended rdf:type owl:NamedIndividual ,
-                                        owl:Thing .
+resource:ActivitySuspended rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Ami
 
-instances:Ami rdf:type owl:NamedIndividual ,
-                          owl:Thing .
+resource:Ami rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Claimed
 
-instances:Claimed rdf:type owl:NamedIndividual ,
-                              owl:Thing .
+resource:Claimed rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Cloud
 
-instances:Cloud rdf:type owl:NamedIndividual ,
-                            owl:Thing .
+resource:Cloud rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Completed
 
-instances:Completed rdf:type owl:NamedIndividual ,
-                                owl:Thing .
+resource:Completed rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/CondorJob
 
-instances:CondorJob rdf:type owl:NamedIndividual ,
-                                owl:Thing .
+resource:CondorJob rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/EBS
 
-instances:EBS rdf:type ec2instances:InformationUnit ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:EBS rdf:type :InformationUnit ,
+                      owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/EC2Instance
 
-instances:EC2Instance rdf:type owl:NamedIndividual ,
-                                  owl:Thing .
+resource:EC2Instance rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/GB
 
-instances:GB rdf:type ec2instances:InformationUnit ,
-                         owl:NamedIndividual ,
-                         owl:Thing .
+resource:GB rdf:type :InformationUnit ,
+                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Held
 
-instances:Held rdf:type owl:NamedIndividual ,
-                           owl:Thing .
+resource:Held rdf:type owl:Thing .
 
 
 
-###  http://ec2ld.linkeddata.es/resources/Hvm
+###  http://ec2ld.linkeddata.es/resource/Hvm
 
-instances:Hvm rdf:type ec2instances:VirtualizationType ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:Hvm rdf:type :VirtualizationType ,
+                      owl:Thing .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/IdafenSantana
+
+resource:IdafenSantana rdf:type owl:Thing ,
+                                foaf:Person ;
+                       
+                       foaf:name "Idafen Santana" .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Idle
 
-instances:Idle rdf:type owl:NamedIndividual ,
-                           owl:Thing .
+resource:Idle rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/KB
 
-instances:KB rdf:type ec2instances:InformationUnit ,
-                         owl:NamedIndividual ,
-                         owl:Thing .
+resource:KB rdf:type :InformationUnit ,
+                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/MB
 
-instances:MB rdf:type ec2instances:InformationUnit ,
-                         owl:NamedIndividual ,
-                         owl:Thing .
+resource:MB rdf:type :InformationUnit ,
+                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Matched
 
-instances:Matched rdf:type owl:NamedIndividual ,
-                              owl:Thing .
+resource:Matched rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Owner
 
-instances:Owner rdf:type owl:NamedIndividual ,
-                            owl:Thing .
+resource:Owner rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Paravirtual
 
-instances:Paravirtual rdf:type ec2instances:VirtualizationType ,
-                                  owl:NamedIndividual ,
-                                  owl:Thing .
+resource:Paravirtual rdf:type :VirtualizationType ,
+                              owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Preempting
 
-instances:Preempting rdf:type owl:NamedIndividual ,
-                                 owl:Thing .
+resource:Preempting rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Removed
 
-instances:Removed rdf:type owl:NamedIndividual ,
-                              owl:Thing .
+resource:Removed rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Running
 
-instances:Running rdf:type owl:NamedIndividual ,
-                              owl:Thing .
+resource:Running rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Submission_err
 
-instances:Submission_err rdf:type owl:NamedIndividual ,
-                                     owl:Thing .
+resource:Submission_err rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/TB
 
-instances:TB rdf:type ec2instances:InformationUnit ,
-                         owl:NamedIndividual ,
-                         owl:Thing .
+resource:TB rdf:type :InformationUnit ,
+                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Unclaimed
 
-instances:Unclaimed rdf:type owl:NamedIndividual ,
-                                owl:Thing .
+resource:Unclaimed rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/Unexpanded
 
-instances:Unexpanded rdf:type owl:NamedIndividual ,
-                                 owl:Thing .
+resource:Unexpanded rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/amazonLinux
 
-instances:amazonLinux rdf:type ec2instances:Linux ,
-                                  owl:NamedIndividual ,
-                                  owl:Thing .
+resource:amazonLinux rdf:type :Linux ,
+                              owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/amountPerHour
 
-instances:amountPerHour rdf:type owl:NamedIndividual ,
-                                    owl:Thing .
+resource:amountPerHour rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/asia_pacific_singapore
 
-instances:asia_pacific_singapore rdf:type ec2instances:Region ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing .
+resource:asia_pacific_singapore rdf:type :Region ,
+                                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/asia_pacific_tokyo
 
-instances:asia_pacific_tokyo rdf:type ec2instances:Region ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing .
+resource:asia_pacific_tokyo rdf:type :Region ,
+                                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/available
 
-instances:available rdf:type ec2instances:AmiState ,
-                                owl:NamedIndividual ,
-                                owl:Thing .
+resource:available rdf:type :AmiState ,
+                            owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/basedOnAmi
 
-instances:basedOnAmi rdf:type owl:NamedIndividual ,
-                                 owl:Thing .
+resource:basedOnAmi rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/belongs_to_cloud
 
-instances:belongs_to_cloud rdf:type owl:NamedIndividual ,
-                                       owl:Thing .
+resource:belongs_to_cloud rdf:type owl:Thing .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/c1.medium
+###  http://ec2ld.linkeddata.es/resource/c1_medium
 
-instances:c1_medium rdf:type ec2instances:EC2InstanceType ,
-                                owl:NamedIndividual ,
-                                owl:Thing ;
-                       
-                       rdfs:label "High-CPU Medium Instance"^^xsd:string ;
-                       
-                       ec2instances:numberOfEcu "5"^^xsd:float ;
-                       
-                       ec2instances:hasDiskStorage instances:c1_medium_diskstorage ;
-                       
-                       ec2instances:hasMemoryStorage instances:c1_medium_memorystorage ;
-                       
-                       ec2instances:hasArchitecture instances:i386 ;
-                       
-                       ec2instances:hasLinuxPricing instances:prc_c1_med_lnx ;
-                       
-                       ec2instances:hasWindowsPricing instances:prc_c1_med_win .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/c1.medium.diskstorage
-
-instances:c1_medium_diskstorage rdf:type ec2instances:DiskStorage ,
-                                            owl:NamedIndividual ,
-                                            owl:Thing ;
-                                   
-                                   ec2instances:storageSize "350"^^xsd:float ;
-                                   
-                                   ec2instances:mesuredIn instances:GB .
+resource:c1_medium rdf:type :EC2InstanceType ,
+                            owl:Thing ;
+                   
+                   rdfs:label "High-CPU Medium Instance"^^xsd:string ;
+                   
+                   :numberOfEcu "5"^^xsd:float ;
+                   
+                   :hasDiskStorage resource:c1_medium_diskstorage ;
+                   
+                   :hasMemoryStorage resource:c1_medium_memorystorage ;
+                   
+                   :hasArchitecture resource:i386 ;
+                   
+                   :hasLinuxPricing resource:prc_c1_med_lnx ;
+                   
+                   :hasWindowsPricing resource:prc_c1_med_win .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/c1.medium.memorystorage
+###  http://ec2ld.linkeddata.es/resource/c1_medium_diskstorage
 
-instances:c1_medium_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                              owl:NamedIndividual ,
-                                              owl:Thing ;
-                                     
-                                     ec2instances:storageSize "1.7"^^xsd:float ;
-                                     
-                                     ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/c1.xlarge
-
-instances:c1_xlarge rdf:type ec2instances:EC2InstanceType ,
-                                owl:NamedIndividual ,
-                                owl:Thing ;
-                       
-                       rdfs:label "High-CPU Extra Large Instance"^^xsd:string ;
-                       
-                       ec2instances:numberOfEcu "20"^^xsd:float ;
-                       
-                       ec2instances:hasDiskStorage instances:c1_xlarge_diskstorage ;
-                       
-                       ec2instances:hasMemoryStorage instances:c1_xlarge_memorystorage ;
-                       
-                       ec2instances:hasLinuxPricing instances:prc_c1_xlarge_lnx ;
-                       
-                       ec2instances:hasWindowsPricing instances:prc_c1_xlarge_win ;
-                       
-                       ec2instances:hasArchitecture instances:x86_64 .
+resource:c1_medium_diskstorage rdf:type :DiskStorage ,
+                                        owl:Thing ;
+                               
+                               :storageSize "350"^^xsd:float ;
+                               
+                               :mesuredIn resource:GB .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/c1.xlarge.diskstorage
+###  http://ec2ld.linkeddata.es/resource/c1_medium_memorystorage
 
-instances:c1_xlarge_diskstorage rdf:type instances:DiskStorage ,
-                                            owl:NamedIndividual ,
-                                            owl:Thing ;
-                                   
-                                   ec2instances:storageSize "1690"^^xsd:float ;
-                                   
-                                   ec2instances:mesuredIn instances:GB .
-
+resource:c1_medium_memorystorage rdf:type :MemoryStorage ,
+                                          owl:Thing ;
+                                 
+                                 :storageSize "1.7"^^xsd:float ;
+                                 
+                                 :mesuredIn resource:GB .
 
 
-###  http://ec2ld.linkeddata.es/resourc/c1.xlarge.memorystorage
 
-instances:c1_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                              owl:NamedIndividual ,
-                                              owl:Thing ;
-                                     
-                                     ec2instances:storageSize "7"^^xsd:float ;
-                                     
-                                     ec2instances:mesuredIn instances:GB .
+###  http://ec2ld.linkeddata.es/resource/c1_xlarge
+
+resource:c1_xlarge rdf:type :EC2InstanceType ,
+                            owl:Thing ;
+                   
+                   rdfs:label "High-CPU Extra Large Instance"^^xsd:string ;
+                   
+                   :numberOfEcu "20"^^xsd:float ;
+                   
+                   :hasDiskStorage resource:c1_xlarge_diskstorage ;
+                   
+                   :hasMemoryStorage resource:c1_xlarge_memorystorage ;
+                   
+                   :hasLinuxPricing resource:prc_c1_xlarge_lnx ;
+                   
+                   :hasWindowsPricing resource:prc_c1_xlarge_win ;
+                   
+                   :hasArchitecture resource:x86_64 .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/c1_xlarge_diskstorage
+
+resource:c1_xlarge_diskstorage rdf:type resource:DiskStorage ,
+                                        owl:Thing ;
+                               
+                               :storageSize "1690"^^xsd:float ;
+                               
+                               :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/c1_xlarge_memorystorage
+
+resource:c1_xlarge_memorystorage rdf:type :MemoryStorage ,
+                                          owl:Thing ;
+                                 
+                                 :storageSize "7"^^xsd:float ;
+                                 
+                                 :mesuredIn resource:GB .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/centOS
 
-instances:centOS rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:centOS rdf:type :Linux ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/couldBeBasedOn
 
-instances:couldBeBasedOn rdf:type owl:NamedIndividual ,
-                                     owl:Thing .
+resource:couldBeBasedOn rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/debian
 
-instances:debian rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:debian rdf:type :Linux ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/dns_name
 
-instances:dns_name rdf:type owl:NamedIndividual ,
-                               owl:Thing .
+resource:dns_name rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ebs
 
-instances:ebs rdf:type ec2instances:RootDeviceType ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:ebs rdf:type :RootDeviceType ,
+                      owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/eu_west_ireland
 
-instances:eu_west_ireland rdf:type ec2instances:Region ,
-                                      owl:NamedIndividual ,
-                                      owl:Thing .
+resource:eu_west_ireland rdf:type :Region ,
+                                  owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/fedora
 
-instances:fedora rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:fedora rdf:type :Linux ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/gentoo
 
-instances:gentoo rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:gentoo rdf:type :Linux ,
+                         owl:Thing .
+
 
 
 ###  http://ec2ld.linkeddata.es/resource/i386
 
-instances:i386 rdf:type ec2instances:Architecture ,
-                           owl:NamedIndividual ,
-                           owl:Thing .
+resource:i386 rdf:type :Architecture ,
+                       owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/instanceStore
 
-instances:instanceStore rdf:type ec2instances:RootDeviceType ,
-                                    owl:NamedIndividual ,
-                                    owl:Thing .
-
+resource:instanceStore rdf:type :RootDeviceType ,
+                                owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/kernel
 
-instances:kernel rdf:type ec2instances:ImageType ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:kernel rdf:type :ImageType ,
+                         owl:Thing .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.large
+###  http://ec2ld.linkeddata.es/resource/m1_large
 
-instances:m1_large rdf:type ec2instances:EC2InstanceType ,
-                               owl:NamedIndividual ,
-                               owl:Thing ;
-                      
-                      rdfs:label "Large Instance"^^xsd:string ;
-                      
-                      ec2instances:numberOfEcu "4"^^xsd:float ;
-                      
-                      ec2instances:hasDiskStorage instances:m1_large_diskstorage ;
-                      
-                      ec2instances:hasMemoryStorage instances:m1_large_memorystorage ;
-                      
-                      ec2instances:hasLinuxPricing instances:prc_m1_large_lnx ;
-                      
-                      ec2instances:hasWindowsPricing instances:prc_m1_large_win ;
-                      
-                      ec2instances:hasArchitecture instances:x86_64 .
-
+resource:m1_large rdf:type :EC2InstanceType ,
+                           owl:Thing ;
+                  
+                  rdfs:label "Large Instance"^^xsd:string ;
+                  
+                  :numberOfEcu "4"^^xsd:float ;
+                  
+                  :hasDiskStorage resource:m1_large_diskstorage ;
+                  
+                  :hasMemoryStorage resource:m1_large_memorystorage ;
+                  
+                  :hasLinuxPricing resource:prc_m1_large_lnx ;
+                  
+                  :hasWindowsPricing resource:prc_m1_large_win ;
+                  
+                  :hasArchitecture resource:x86_64 .
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.large.diskstorage
 
-instances:m1_large_diskstorage rdf:type ec2instances:DiskStorage ,
-                                           owl:NamedIndividual ,
+###  http://ec2ld.linkeddata.es/resource/m1_large_diskstorage
+
+resource:m1_large_diskstorage rdf:type :DiskStorage ,
+                                       owl:Thing ;
+                              
+                              :storageSize "850"^^xsd:float ;
+                              
+                              :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_large_memorystorage
+
+resource:m1_large_memorystorage rdf:type :MemoryStorage ,
+                                         owl:Thing ;
+                                
+                                :storageSize "7.5"^^xsd:float ;
+                                
+                                :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_small
+
+resource:m1_small rdf:type :EC2InstanceType ,
+                           owl:Thing ;
+                  
+                  rdfs:label "Small instance"^^xsd:string ;
+                  
+                  :numberOfEcu "1"^^xsd:float ;
+                  
+                  :hasArchitecture resource:i386 ;
+                  
+                  :hasDiskStorage resource:m1_small_diskstorage ;
+                  
+                  :hasMemoryStorage resource:m1_small_memorystorage ;
+                  
+                  :hasLinuxPricing resource:prc_m1_small_lnx ;
+                  
+                  :hasWindowsPricing resource:prc_m1_small_win .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_small_diskstorage
+
+resource:m1_small_diskstorage rdf:type :DiskStorage ,
+                                       owl:Thing ;
+                              
+                              :storageSize "160"^^xsd:float ;
+                              
+                              :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_small_memorystorage
+
+resource:m1_small_memorystorage rdf:type :MemoryStorage ,
+                                         owl:Thing ;
+                                
+                                :storageSize "1.7"^^xsd:float ;
+                                
+                                :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_xlarge
+
+resource:m1_xlarge rdf:type :EC2InstanceType ,
+                            owl:Thing ;
+                   
+                   rdfs:label "Extra Large Instance"^^xsd:string ;
+                   
+                   :numberOfEcu "8"^^xsd:float ;
+                   
+                   :hasDiskStorage resource:m1_xlarge_diskstorage ;
+                   
+                   :hasMemoryStorage resource:m1_xlarge_memorystorage ;
+                   
+                   :hasLinuxPricing resource:prc_m1_xlarge_lnx ;
+                   
+                   :hasWindowsPricing resource:prc_m1_xlarge_win ;
+                   
+                   :hasArchitecture resource:x86_64 .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_xlarge_diskstorage
+
+resource:m1_xlarge_diskstorage rdf:type :DiskStorage ,
+                                        owl:Thing ;
+                               
+                               :storageSize "1690"^^xsd:float ;
+                               
+                               :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m1_xlarge_memorystorage
+
+resource:m1_xlarge_memorystorage rdf:type :MemoryStorage ,
+                                          owl:Thing ;
+                                 
+                                 :storageSize "15"^^xsd:float ;
+                                 
+                                 :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m2_2xlarge
+
+resource:m2_2xlarge rdf:type :EC2InstanceType ,
+                             owl:Thing ;
+                    
+                    :numberOfEcu "13"^^xsd:float ;
+                    
+                    :hasDiskStorage resource:m2_2xlarge_diskstorage ;
+                    
+                    :hasMemoryStorage resource:m2_2xlarge_memorystorage ;
+                    
+                    :hasLinuxPricing resource:prc_m2_2xlarge_lnx ;
+                    
+                    :hasWindowsPricing resource:prc_m2_2xlarge_win ;
+                    
+                    :hasArchitecture resource:x86_64 .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m2_2xlarge_diskstorage
+
+resource:m2_2xlarge_diskstorage rdf:type :DiskStorage ,
+                                         owl:Thing ;
+                                
+                                :storageSize "850"^^xsd:float ;
+                                
+                                :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m2_2xlarge_memorystorage
+
+resource:m2_2xlarge_memorystorage rdf:type :MemoryStorage ,
                                            owl:Thing ;
                                   
-                                  ec2instances:storageSize "850"^^xsd:float ;
+                                  :storageSize "34.2"^^xsd:float ;
                                   
-                                  ec2instances:mesuredIn instances:GB .
+                                  :mesuredIn resource:GB .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.large.memorystorage
+###  http://ec2ld.linkeddata.es/resource/m2_4xlarge
 
-instances:m1_large_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing ;
-                                    
-                                    ec2instances:storageSize "7.5"^^xsd:float ;
-                                    
-                                    ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m1.small
-
-instances:m1_small rdf:type ec2instances:EC2InstanceType ,
-                               owl:NamedIndividual ,
-                               owl:Thing ;
-                      
-                      rdfs:label "Small instance"^^xsd:string ;
-                      
-                      ec2instances:numberOfEcu "1"^^xsd:float ;
-                      
-                      ec2instances:hasArchitecture instances:i386 ;
-                      
-                      ec2instances:hasDiskStorage instances:m1_small_diskstorage ;
-                      
-                      ec2instances:hasMemoryStorage instances:m1_small_memorystorage ;
-                      
-                      ec2instances:hasLinuxPricing instances:prc_m1_small_lnx ;
-                      
-                      ec2instances:hasWindowsPricing instances:prc_m1_small_win .
+resource:m2_4xlarge rdf:type :EC2InstanceType ,
+                             owl:Thing ;
+                    
+                    :numberOfEcu "26"^^xsd:float ;
+                    
+                    :hasMemoryStorage resource:m2_4xlarge_diskstorage ,
+                                      resource:m2_4xlarge_memorystorage ;
+                    
+                    :hasWindowsPricing resource:prc_m2_2xlarge_win ;
+                    
+                    :hasLinuxPricing resource:prc_m2_4xlarge_lnx ;
+                    
+                    :hasArchitecture resource:x86_64 .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.small.diskstorage
+###  http://ec2ld.linkeddata.es/resource/m2_4xlarge_diskstorage
 
-instances:m1_small_diskstorage rdf:type ec2instances:DiskStorage ,
-                                           owl:NamedIndividual ,
+resource:m2_4xlarge_diskstorage rdf:type :DiskStorage ,
+                                         owl:Thing ;
+                                
+                                :storageSize "1690"^^xsd:float ;
+                                
+                                :mesuredIn resource:GB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/m2_4xlarge_memorystorage
+
+resource:m2_4xlarge_memorystorage rdf:type :MemoryStorage ,
                                            owl:Thing ;
                                   
-                                  ec2instances:storageSize "160"^^xsd:float ;
+                                  :storageSize "68.4"^^xsd:float ;
                                   
-                                  ec2instances:mesuredIn instances:GB .
+                                  :mesuredIn resource:GB .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.small.memorystorage
+###  http://ec2ld.linkeddata.es/resource/m2_xlarge
 
-instances:m1_small_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing ;
-                                    
-                                    ec2instances:storageSize "1.7"^^xsd:float ;
-                                    
-                                    ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m1.xlarge
-
-instances:m1_xlarge rdf:type ec2instances:EC2InstanceType ,
-                                owl:NamedIndividual ,
-                                owl:Thing ;
-                       
-                       rdfs:label "Extra Large Instance"^^xsd:string ;
-                       
-                       ec2instances:numberOfEcu "8"^^xsd:float ;
-                       
-                       ec2instances:hasDiskStorage instances:m1_xlarge_diskstorage ;
-                       
-                       ec2instances:hasMemoryStorage instances:m1_xlarge_memorystorage ;
-                       
-                       ec2instances:hasLinuxPricing instances:prc_m1_xlarge_lnx ;
-                       
-                       ec2instances:hasWindowsPricing instances:prc_m1_xlarge_win ;
-                       
-                       ec2instances:hasArchitecture instances:x86_64 .
+resource:m2_xlarge rdf:type :EC2InstanceType ,
+                            owl:Thing ;
+                   
+                   :numberOfEcu "6.5"^^xsd:float ;
+                   
+                   :hasMemoryStorage resource:m2_xlarge_diskstorage ;
+                   
+                   :hasDiskStorage resource:m2_xlarge_memorystorage ;
+                   
+                   :hasLinuxPricing resource:prc_m2_xlarge_lnx ;
+                   
+                   :hasWindowsPricing resource:prc_m2_xlarge_win ;
+                   
+                   :hasArchitecture resource:x86_64 .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m1.xlarge.diskstorage
+###  http://ec2ld.linkeddata.es/resource/m2_xlarge_diskstorage
 
-instances:m1_xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
-                                            owl:NamedIndividual ,
-                                            owl:Thing ;
-                                   
-                                   ec2instances:storageSize "1690"^^xsd:float ;
-                                   
-                                   ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m1.xlarge.memorystorage
-
-instances:m1_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                              owl:NamedIndividual ,
-                                              owl:Thing ;
-                                     
-                                     ec2instances:storageSize "15"^^xsd:float ;
-                                     
-                                     ec2instances:mesuredIn instances:GB .
+resource:m2_xlarge_diskstorage rdf:type :DiskStorage ,
+                                        owl:Thing ;
+                               
+                               :storageSize "420"^^xsd:float ;
+                               
+                               :mesuredIn resource:GB .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/m2.2xlarge
+###  http://ec2ld.linkeddata.es/resource/m2_xlarge_memorystorage
 
-instances:m2_2xlarge rdf:type ec2instances:EC2InstanceType ,
-                                 owl:NamedIndividual ,
-                                 owl:Thing ;
-                        
-                        ec2instances:numberOfEcu "13"^^xsd:float ;
-                        
-                        ec2instances:hasDiskStorage instances:m2_2xlarge_diskstorage ;
-                        
-                        ec2instances:hasMemoryStorage instances:m2_2xlarge_memorystorage ;
-                        
-                        ec2instances:hasLinuxPricing instances:prc_m2_2xlarge_lnx ;
-                        
-                        ec2instances:hasWindowsPricing instances:prc_m2_2xlarge_win ;
-                        
-                        ec2instances:hasArchitecture instances:x86_64 .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.2xlarge.diskstorage
-
-instances:m2_2xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing ;
-                                    
-                                    ec2instances:storageSize "850"^^xsd:float ;
-                                    
-                                    ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.2xlarge.memorystorage
-
-instances:m2_2xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                               owl:NamedIndividual ,
-                                               owl:Thing ;
-                                      
-                                      ec2instances:storageSize "34.2"^^xsd:float ;
-                                      
-                                      ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.4xlarge
-
-instances:m2_4xlarge rdf:type ec2instances:EC2InstanceType ,
-                                 owl:NamedIndividual ,
-                                 owl:Thing ;
-                        
-                        ec2instances:numberOfEcu "26"^^xsd:float ;
-                        
-                        ec2instances:hasMemoryStorage instances:m2_4xlarge_diskstorage ,
-                                                      instances:m2_4xlarge_memorystorage ;
-                        
-                        ec2instances:hasWindowsPricing instances:prc_m2_2xlarge_win ;
-                        
-                        ec2instances:hasLinuxPricing instances:prc_m2_4xlarge_lnx ;
-                        
-                        ec2instances:hasArchitecture instances:x86_64 .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.4xlarge.diskstorage
-
-instances:m2_4xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing ;
-                                    
-                                    ec2instances:storageSize "1690"^^xsd:float ;
-                                    
-                                    ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.4xlarge.memorystorage
-
-instances:m2_4xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                               owl:NamedIndividual ,
-                                               owl:Thing ;
-                                      
-                                      ec2instances:storageSize "68.4"^^xsd:float ;
-                                      
-                                      ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.xlarge
-
-instances:m2_xlarge rdf:type ec2instances:EC2InstanceType ,
-                                owl:NamedIndividual ,
-                                owl:Thing ;
-                       
-                       ec2instances:numberOfEcu "6.5"^^xsd:float ;
-                       
-                       ec2instances:hasMemoryStorage instances:m2_xlarge_diskstorage ;
-                       
-                       ec2instances:hasDiskStorage instances:m2_xlarge_memorystorage ;
-                       
-                       ec2instances:hasLinuxPricing instances:prc_m2_xlarge_lnx ;
-                       
-                       ec2instances:hasWindowsPricing instances:prc_m2_xlarge_win ;
-                       
-                       ec2instances:hasArchitecture instances:x86_64 .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.xlarge.diskstorage
-
-instances:m2_xlarge_diskstorage rdf:type ec2instances:DiskStorage ,
-                                            owl:NamedIndividual ,
-                                            owl:Thing ;
-                                   
-                                   ec2instances:storageSize "420"^^xsd:float ;
-                                   
-                                   ec2instances:mesuredIn instances:GB .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/m2.xlarge.memorystorage
-
-instances:m2_xlarge_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                              owl:NamedIndividual ,
-                                              owl:Thing ;
-                                     
-                                     ec2instances:storageSize "17.1"^^xsd:float ;
-                                     
-                                     ec2instances:mesuredIn instances:GB .
+resource:m2_xlarge_memorystorage rdf:type :MemoryStorage ,
+                                          owl:Thing ;
+                                 
+                                 :storageSize "17.1"^^xsd:float ;
+                                 
+                                 :mesuredIn resource:GB .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/machine
 
-instances:machine rdf:type ec2instances:ImageType ,
-                              owl:NamedIndividual ,
-                              owl:Thing .
+resource:machine rdf:type :ImageType ,
+                          owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/numberOfEcu
 
-instances:numberOfEcu rdf:type owl:NamedIndividual ,
-                                  owl:Thing .
+resource:numberOfEcu rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/openSolaris
 
-instances:openSolaris rdf:type ec2instances:Linux ,
-                                  owl:NamedIndividual ,
-                                  owl:Thing .
+resource:openSolaris rdf:type :Linux ,
+                              owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/openSuse
 
-instances:openSuse rdf:type ec2instances:Linux ,
-                               owl:NamedIndividual ,
-                               owl:Thing .
+resource:openSuse rdf:type :Linux ,
+                           owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ovm
 
-instances:ovm rdf:type ec2instances:HypervisorType ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:ovm rdf:type :HypervisorType ,
+                      owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/pendingState
 
-instances:pendingState rdf:type owl:NamedIndividual ,
-                                   owl:Thing .
+resource:pendingState rdf:type owl:Thing .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.c1.med.lnx
+###  http://ec2ld.linkeddata.es/resource/prc_c1_med_lnx
 
-instances:prc_c1_med_lnx rdf:type ec2instances:Pricing ,
-                                     owl:NamedIndividual ,
+resource:prc_c1_med_lnx rdf:type :Pricing ,
+                                 owl:Thing ;
+                        
+                        :amountPerHour "0.17"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_c1_med_win
+
+resource:prc_c1_med_win rdf:type :Pricing ,
+                                 owl:Thing ;
+                        
+                        :amountPerHour "0.29"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_c1_xlarge_lnx
+
+resource:prc_c1_xlarge_lnx rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "0.68"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_c1_xlarge_win
+
+resource:prc_c1_xlarge_win rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "1.16"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_large_lnx
+
+resource:prc_m1_large_lnx rdf:type :Pricing ,
+                                   owl:Thing ;
+                          
+                          :amountPerHour "0.34"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_large_win
+
+resource:prc_m1_large_win rdf:type :Pricing ,
+                                   owl:Thing ;
+                          
+                          :amountPerHour "0.48"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_small_lnx
+
+resource:prc_m1_small_lnx rdf:type :Pricing ,
+                                   owl:Thing ;
+                          
+                          :amountPerHour "0.085"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_small_win
+
+resource:prc_m1_small_win rdf:type :Pricing ,
+                                   owl:Thing ;
+                          
+                          :amountPerHour "0.12"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_xlarge_lnx
+
+resource:prc_m1_xlarge_lnx rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "0.68"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m1_xlarge_win
+
+resource:prc_m1_xlarge_win rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "0.96"^^xsd:float .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/prc_m2_2xlarge_lnx
+
+resource:prc_m2_2xlarge_lnx rdf:type :Pricing ,
                                      owl:Thing ;
                             
-                            ec2instances:amountPerHour "0.17"^^xsd:float .
+                            :amountPerHour "1"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.c1.med.win
+###  http://ec2ld.linkeddata.es/resource/prc_m2_2xlarge_win
 
-instances:prc_c1_med_win rdf:type ec2instances:Pricing ,
-                                     owl:NamedIndividual ,
+resource:prc_m2_2xlarge_win rdf:type :Pricing ,
                                      owl:Thing ;
                             
-                            ec2instances:amountPerHour "0.29"^^xsd:float .
+                            :amountPerHour "1.24"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.lnx
+###  http://ec2ld.linkeddata.es/resource/prc_m2_4xlarge_lnx
 
-instances:prc_c1_xlarge_lnx rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "0.68"^^xsd:float .
+resource:prc_m2_4xlarge_lnx rdf:type :Pricing ,
+                                     owl:Thing ;
+                            
+                            :amountPerHour "2"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.win
+###  http://ec2ld.linkeddata.es/resource/prc_m2_4xlarge_win
 
-instances:prc_c1_xlarge_win rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "1.16"^^xsd:float .
+resource:prc_m2_4xlarge_win rdf:type :Pricing ,
+                                     owl:Thing ;
+                            
+                            :amountPerHour "2.48"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.m1.large.lnx
+###  http://ec2ld.linkeddata.es/resource/prc_m2_xlarge_lnx
 
-instances:prc_m1_large_lnx rdf:type ec2instances:Pricing ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing ;
-                              
-                              ec2instances:amountPerHour "0.34"^^xsd:float .
+resource:prc_m2_xlarge_lnx rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "0.50"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.m1.large.win
+###  http://ec2ld.linkeddata.es/resource/prc_m2_xlarge_win
 
-instances:prc_m1_large_win rdf:type ec2instances:Pricing ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing ;
-                              
-                              ec2instances:amountPerHour "0.48"^^xsd:float .
+resource:prc_m2_xlarge_win rdf:type :Pricing ,
+                                    owl:Thing ;
+                           
+                           :amountPerHour "0.62"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.m1.small.lnx
+###  http://ec2ld.linkeddata.es/resource/prc_t1_micro_linux
 
-instances:prc_m1_small_lnx rdf:type ec2instances:Pricing ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing ;
-                              
-                              ec2instances:amountPerHour "0.085"^^xsd:float .
+resource:prc_t1_micro_linux rdf:type :Pricing ,
+                                     owl:Thing ;
+                            
+                            :amountPerHour "0.02"^^xsd:float .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/prc.m1.small.win
+###  http://ec2ld.linkeddata.es/resource/prc_t1_micro_win
 
-instances:prc_m1_small_win rdf:type ec2instances:Pricing ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing ;
-                              
-                              ec2instances:amountPerHour "0.12"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.lnx
-
-instances:prc_m1_xlarge_lnx rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "0.68"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.win
-
-instances:prc_m1_xlarge_win rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "0.96"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.lnx
-
-instances:prc_m2_2xlarge_lnx rdf:type ec2instances:Pricing ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing ;
-                                
-                                ec2instances:amountPerHour "1"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win
-
-instances:prc_m2_2xlarge_win rdf:type ec2instances:Pricing ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing ;
-                                
-                                ec2instances:amountPerHour "1.24"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.lnx
-
-instances:prc_m2_4xlarge_lnx rdf:type ec2instances:Pricing ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing ;
-                                
-                                ec2instances:amountPerHour "2"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.win
-
-instances:prc_m2_4xlarge_win rdf:type ec2instances:Pricing ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing ;
-                                
-                                ec2instances:amountPerHour "2.48"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.lnx
-
-instances:prc_m2_xlarge_lnx rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "0.50"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.win
-
-instances:prc_m2_xlarge_win rdf:type ec2instances:Pricing ,
-                                        owl:NamedIndividual ,
-                                        owl:Thing ;
-                               
-                               ec2instances:amountPerHour "0.62"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux
-
-instances:prc_t1_micro_linux rdf:type ec2instances:Pricing ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing ;
-                                
-                                ec2instances:amountPerHour "0.02"^^xsd:float .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/prc.t1.micro.win
-
-instances:prc_t1_micro_win rdf:type ec2instances:Pricing ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing ;
-                              
-                              ec2instances:amountPerHour "0.03"^^xsd:float .
+resource:prc_t1_micro_win rdf:type :Pricing ,
+                                   owl:Thing ;
+                          
+                          :amountPerHour "0.03"^^xsd:float .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/private
 
-instances:private rdf:type ec2instances:Visibility ,
-                              owl:NamedIndividual ,
-                              owl:Thing .
+resource:private rdf:type :Visibility ,
+                          owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/public
 
-instances:public rdf:type ec2instances:Visibility ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:public rdf:type :Visibility ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ram
 
-instances:ram rdf:type ec2instances:ImageType ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:ram rdf:type :ImageType ,
+                      owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/redhat
 
-instances:redhat rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:redhat rdf:type :Linux ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/south_america_brasil
 
-instances:south_america_brasil rdf:type ec2instances:Region ,
-                                           owl:NamedIndividual ,
-                                           owl:Thing .
+resource:south_america_brasil rdf:type :Region ,
+                                       owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/suseLinux
 
-instances:suseLinux rdf:type ec2instances:Linux ,
-                                owl:NamedIndividual ,
-                                owl:Thing .
+resource:suseLinux rdf:type :Linux ,
+                            owl:Thing .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/t1.micro
+###  http://ec2ld.linkeddata.es/resource/t1_micro
 
-instances:t1_micro rdf:type ec2instances:EC2InstanceType ,
-                               owl:NamedIndividual ,
-                               owl:Thing ;
-                      
-                      ec2instances:numberOfEcu "2"^^xsd:float ;
-                      
-                      ec2instances:hasArchitecture instances:i386 ;
-                      
-                      ec2instances:hasLinuxPricing instances:prc_t1_micro_linux ;
-                      
-                      ec2instances:hasWindowsPricing instances:prc_t1_micro_win ;
-                      
-                      ec2instances:hasDiskStorage instances:t1_micro_diskstorage ;
-                      
-                      ec2instances:hasMemoryStorage instances:t1_micro_memorystorage .
-
-
-
-###  http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage
-
-instances:t1_micro_diskstorage rdf:type ec2instances:DiskStorage ,
-                                           owl:NamedIndividual ,
-                                           owl:Thing ;
-                                  
-                                  ec2instances:storageSize "0"^^xsd:float ;
-                                  
-                                  ec2instances:mesuredIn instances:EBS .
+resource:t1_micro rdf:type :EC2InstanceType ,
+                           owl:Thing ;
+                  
+                  :numberOfEcu "2"^^xsd:float ;
+                  
+                  :hasArchitecture resource:i386 ;
+                  
+                  :hasLinuxPricing resource:prc_t1_micro_linux ;
+                  
+                  :hasWindowsPricing resource:prc_t1_micro_win ;
+                  
+                  :hasDiskStorage resource:t1_micro_diskstorage ;
+                  
+                  :hasMemoryStorage resource:t1_micro_memorystorage .
 
 
 
-###  http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage
+###  http://ec2ld.linkeddata.es/resource/t1_micro_diskstorage
 
-instances:t1_micro_memorystorage rdf:type ec2instances:MemoryStorage ,
-                                             owl:NamedIndividual ,
-                                             owl:Thing ;
-                                    
-                                    ec2instances:storageSize "613"^^xsd:float ;
-                                    
-                                    ec2instances:mesuredIn instances:MB .
-
+resource:t1_micro_diskstorage rdf:type :DiskStorage ,
+                                       owl:Thing ;
+                              
+                              :storageSize "0"^^xsd:float ;
+                              
+                              :mesuredIn resource:EBS .
 
 
-###  http://ec2ld.linkeddata.es/resource/t1.micro.x86_64
 
-instances:t1_micro_x86_64 rdf:type ec2instances:EC2InstanceType ,
-                                      owl:NamedIndividual ,
-                                      owl:Thing ;
-                             
-                             ec2instances:numberOfEcu "2"^^xsd:float ;
-                             
-                             ec2instances:hasLinuxPricing instances:prc_t1_micro_linux ;
-                             
-                             ec2instances:hasWindowsPricing instances:prc_t1_micro_win ;
-                             
-                             ec2instances:hasDiskStorage instances:t1_micro_diskstorage ;
-                             
-                             ec2instances:hasMemoryStorage instances:t1_micro_memorystorage ;
-                             
-                             ec2instances:hasArchitecture instances:x86_64 .
+###  http://ec2ld.linkeddata.es/resource/t1_micro_memorystorage
+
+resource:t1_micro_memorystorage rdf:type :MemoryStorage ,
+                                         owl:Thing ;
+                                
+                                :storageSize "613"^^xsd:float ;
+                                
+                                :mesuredIn resource:MB .
+
+
+
+###  http://ec2ld.linkeddata.es/resource/t1_micro_x86_64
+
+resource:t1_micro_x86_64 rdf:type :EC2InstanceType ,
+                                  owl:Thing ;
+                         
+                         :numberOfEcu "2"^^xsd:float ;
+                         
+                         :hasLinuxPricing resource:prc_t1_micro_linux ;
+                         
+                         :hasWindowsPricing resource:prc_t1_micro_win ;
+                         
+                         :hasDiskStorage resource:t1_micro_diskstorage ;
+                         
+                         :hasMemoryStorage resource:t1_micro_memorystorage ;
+                         
+                         :hasArchitecture resource:x86_64 .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/terminatedState
 
-instances:terminatedState rdf:type owl:NamedIndividual ,
-                                      owl:Thing .
+resource:terminatedState rdf:type owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/ubuntu
 
-instances:ubuntu rdf:type ec2instances:Linux ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:ubuntu rdf:type :Linux ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/unavailable
 
-instances:unavailable rdf:type ec2instances:AmiState ,
-                                  owl:NamedIndividual ,
-                                  owl:Thing .
+resource:unavailable rdf:type :AmiState ,
+                              owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/us_east_virginia
 
-instances:us_east_virginia rdf:type ec2instances:Region ,
-                                       owl:NamedIndividual ,
-                                       owl:Thing .
+resource:us_east_virginia rdf:type :Region ,
+                                   owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/us_west_california
 
-instances:us_west_california rdf:type ec2instances:Region ,
-                                         owl:NamedIndividual ,
-                                         owl:Thing .
+resource:us_west_california rdf:type :Region ,
+                                     owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/us_west_oregon
 
-instances:us_west_oregon rdf:type ec2instances:Region ,
-                                     owl:NamedIndividual ,
-                                     owl:Thing .
+resource:us_west_oregon rdf:type :Region ,
+                                 owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/windows
 
-instances:windows rdf:type ec2instances:Windows ,
-                              owl:NamedIndividual ,
-                              owl:Thing .
+resource:windows rdf:type :Windows ,
+                          owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/x86_64
 
-instances:x86_64 rdf:type ec2instances:Architecture ,
-                             owl:NamedIndividual ,
-                             owl:Thing .
+resource:x86_64 rdf:type :Architecture ,
+                         owl:Thing .
 
 
 
 ###  http://ec2ld.linkeddata.es/resource/xen
 
-instances:xen rdf:type ec2instances:HypervisorType ,
-                          owl:NamedIndividual ,
-                          owl:Thing .
+resource:xen rdf:type :HypervisorType ,
+                      owl:Thing .
+
+
+
+###  http://mccarthy.dia.fi.upm.es/ec2ld/model/
+
+<http://mccarthy.dia.fi.upm.es/ec2ld/model/> rdf:type owl:Thing .
 
 
 
 
-###  Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net
+###  Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net
 
