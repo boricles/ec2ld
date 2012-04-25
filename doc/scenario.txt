@@ -19,3 +19,68 @@ In the case you want to run a new software,
   * user has to put some values in a webapp which will show suitable AMI ids
 
 A html widget that can be attached to software download webpages
+
+
+
+Semantic Technology Lab (STLab)
+Institute for Cognitive Science and Technology,
+National Research Council (ISTC-CNR)
+Via Nomentana 56, 00161, Roma, Italy
+
+
+
+Food and Agriculture Organization  
+of the United Nations (FAO) 
+Viale delle Terme di Caracalla 1 
+00100  Rome 
+Italy
+
+
+Departamento de Electrónica y Computación
+Universidad de Santiago de Compostela
+Edificio Monte da Condesa
+Campus Sur
+15782 - Santiago de Compostela
+(España)
+
+
+
+Departamento de Electrónica y Computación
+Universidad de Santiago de Compostela
+Edificio Monte da Condesa
+Campus Sur
+15782 - Santiago de Compostela
+(España)
+
+
+Department of New Media Technology
+MODUL University Vienna
+Am Kahlenberg 1
+1190 Vienna | Austria
+
+
+Thomas J. Watson Research Center, 
+Hawthorne I street address
+19 Skyline Drive,
+Hawthorne, NY 10532
+
+
+Knowledge Media Institute,
+The Open University,
+Milton Keynes,
+MK7 6AA,
+United Kingdom.
+
+National University of Ireland, Galway
+DERI
+IDA Business Park,
+Lower Dangan,
+Galway, Ireland
+
+--------------------------------
+- http://mccarthy.dia.fi.upm.es/rdb2rdf/tc/R2RML_IReport.html
+- https://github.com/boricles/rdb2rdf-th/downloads
+select distinct ?station ?prop ?propvalue where {?station a <http://aemet.linkeddata.es/ontology/WeatherStation> . ?station ?prop ?propvalue. }
+
+http://aemet.linkeddata.es/resource/TA
+
