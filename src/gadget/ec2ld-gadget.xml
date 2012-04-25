@@ -13,6 +13,7 @@
                author="Nandana Mihindukulasooriya"
                scrolling="true"/> 
   <UserPref name="product" display_name="Product" default_value="MyTool"/>
+  <UserPref name="url" display_name="Download URL" default_value="http://example.com/mytool/download"/>
   <UserPref name="os" display_name="Operating System" default_value="Windows" datatype="enum" >
      <EnumValue value="Amazon Linux" />
      <EnumValue value="Cent OS" />
@@ -40,80 +41,38 @@
      <EnumValue value="South America (Sao Paulo)" />
   </UserPref>
   <UserPref name="size" display_name="Min. Image Size (GB)" default_value="5" datatype="string" />
-  <UserPref name="mylist" display_name="Add Search Terms" datatype="list" default_value="zdnet|pc|Apple Insider"/>
   
-  <UserPref name="mychoice" display_name="What else?" datatype="bool" default_value="true"/>
+  <Content type="html">
+    <![CDATA[
+      <div id="content_div"></div>
+      <script type="text/javascript">
+        // get prefs
+        var prefs = new gadgets.Prefs();
 
-	<Content type="html">
-	  <![CDATA[
-	    <div id="content_div"></div>
-	    <script type="text/javascript">
-	      // get prefs
-	      var prefs = new gadgets.Prefs();
+        var os = prefs.getString("os");
+        var arch = prefs.getString("arch");
+        var product = prefs.getString("product");
+        
+        
+        // Start building HTML string that will be displayed in <div>.           
+          // Set the style for the <div>.        
+          var html = "<div style='padding: 5px;background-color: #ccf;font-family:Arial, Helvetica;" 
+            + "text-align:left;font-size:90%'>";   
+          // Set style for title.
+          html +="<div style='text-align:center; font-size: 120%; color: yellow; " 
+            + "font-weight: 700;'>"
+            + "AMI images for " 
+            + product + "</div><br>";
+        
+        html += "<div>";    
+        html += "<a href=\"www.google.com\"></a>";
+        html += "<br>";
+        // Close up div 
+        html += "</div>";
+        document.getElementById('content_div').innerHTML = html;  
+  
 
-	      var os = prefs.getString("os");
-	      var arch = prefs.getString("arch");
-	      var product = prefs.getString("product");
-	
-	      function makeDOMRequest() {    
-	        var params = {};  
-	        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;  
-	        var url = "http://appserver.stratoslive.wso2.com/t/nandana.org/webapps/ec2ld/data/AMIFinder?os="+os+"&arch="+arch;  
-	        gadgets.io.makeRequest(url, response, params);
-	      };
-	      
-	      function response(obj) { 
-	      
-	      	// obj.data contains a Document DOM element corresponding to the
-	        // page that was requested
-	        var domdata = obj.data;
-	      
-	        // Start building HTML string that will be displayed in <div>.           
-	        // Set the style for the <div>.        
-	        var html = "<div style='padding: 5px;background-color: #ccf;font-family:Arial, Helvetica;" 
-	          + "text-align:left;font-size:90%'>";   
-	        // Set style for title.
-	        html +="<div style='text-align:center; font-size: 120%; color: yellow; " 
-	          + "font-weight: 700;'>"
-	          + "AMI images for " 
-	          + product + "</div><br>";
-	         
-	           
-	        // Get a list of the <ami> element nodes in the file
-	        var itemList = domdata.getElementsByTagName("ami");
-	 
-	        // Loop through all <ami> nodes
-	        for (var i = 0; i < itemList.length ; i++) { 
-	        // For each <ami> node, get child nodes.
-	        var nodeList = itemList.item(i).childNodes;
-	
-	        // Loop through child nodes. Extract data from the text nodes that are
-	        // the children of the associated id, and url element nodes.
-	        for (var j = 0; j < nodeList.length ; j++) {
-	          var node = nodeList.item(j);
-	          if (node.nodeName == "id") 
-	          {
-	            var id = node.firstChild.nodeValue;
-	          }
-	          if (node.nodeName == "url") 
-	          {
-	            var url = node.firstChild.nodeValue;
-	          }
-	          
-	        } 
-	        
-	        // Append extracted data to the HTML string.
-	        html += "<a href=\""+url+"\">" + id + "</a>";
-	        html += "<br>";
-
-	      } 
-	      // Close up div 
-	      html += "</div>";
-	      document.getElementById('content_div').innerHTML = html;
-	    };
-	    gadgets.util.registerOnLoadHandler(makeDOMRequest);
-	    </script>
-	  ]]>
+      </script>
+    ]]>
   </Content>
 </Module>
-​
