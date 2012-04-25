@@ -30,6 +30,18 @@
      <EnumValue value="32-bit" />
      <EnumValue value="64-bit" />
   </UserPref>
+  <UserPref name="region" display_name="Region" default_value="32-bit" datatype="enum">
+     <EnumValue value="US East (Virginia)" />
+     <EnumValue value="US West (Oregon)" />
+     <EnumValue value="US West (N. California)" />
+     <EnumValue value="EU West (Ireland)" />
+     <EnumValue value="Asia Pacific (Singapore)" />
+     <EnumValue value="Asia Pacific (Tokyo)" />
+     <EnumValue value="South America (Sao Paulo)" />
+  </UserPref>
+  <UserPref name="size" display_name="Min. Image Size (GB)" default_value="5" datatype="string" />
+  <UserPref name="mylist" display_name="Add Search Terms" datatype="list" default_value="zdnet|pc|Apple Insider"/>
+  
   <UserPref name="mychoice" display_name="What else?" datatype="bool" default_value="true"/>
 
 	<Content type="html">

@@ -9,16 +9,25 @@ If it is possible to use already prepared virtual machines which matches the req
 Here we briefly describe the proces
 
 \section{Applications}
-Our goal of this project is to create a LinkedData dataset about Amazon virtual machine images. Thanks to this dataset, we have been able to build the following applications.
+Our goal of this project is to create a LinkedData dataset about Amazon virtual machine images. Thanks to this dataset, we have been able to build applications which can query the dataset using the defined ontology and help the users find Amazon Machine Images (AMI) that suit their requirements. 
 
-\subsection{VMI Finder Desktop Client}
-This desktop client can run on a computing environment and gathers the data about the computing environment that it is executing. Then it will create a SPARQL query based on the information it gathered from the environment and connect to the SPARQL endpoint which exposes the ec2ld. The query result will provide a set of Amazon Machine Image ids which matches the computing environment it runs.  Users can manually modify the information that has been automatically collected by editing, adding, or removing any information as they wish.  
+\begin{figure}[ht!]
+  \caption{Overall Archtecture}
+  \centering
+    \includegraphics[width=0.5\textwidth]{EC2LD.jpg}
+\end{figure}
 
-\subsection{VMI Finder Webapp}
-Users can provide a set of properties and the webapp will create SPARQL query based on that information to find the AMIs fulfills the characteristics defined by the aforementioned parameters. Advanced used can directly enter SPARQL queries using the EC2LD ontology.
+\subsection{Use cases for AmazonMachineImage reuse}
+Among many other advantages of cloud computing like scalability, high accessbility, and cost saving the ability to reuse a virtual machine as many times becomes a time saver in most of the cloud scenarios. Most cloud users create several master templates of the virtual machines images and use the appropriate one whenever necessary. This is far more efficient compared to setting up physical machines as the virtual machine images which are not currently executing will only consume storage space but no CPU power or memory. It is even better if one can use a public virtual machine image which statisfies the task at hand because it bring the setting up time to a bare minumum. 
 
-\subsection{VMI Agent Desktop client}
-This client can run inside a virtual machine and collect all the information about a virtual machine and given the virtual machine, the agent can publish those data so they will be used in the future searches of the virtual machine images. This will enrich the dataset with a lot additional information that are not normally available using only the Amazon API.
+There are many use cases where it is very useful to find and reuse an existing virtual machine image without spending time on preparing the environment. For example, one might want to find a virtual machine environment which has a similar characteristics to a physical machine to experiment different configurations or settings without having the risk of corrupting the own machines. It also make it possible to start things from the scratch with another instance of the same virtual image. Moreover, it is becoming common for software vendors to provide links to public virtual machine images which the users can use as a sandbox to first try the software on a virtual machine without installing on their own machines.    
 
-\subsection{VMI Finder Webpage widget}
-Once configured with certain properties, this widget can communicate with the SPARQL endpoint and dynamically fetch the amazon virtual machine images which match the widget configuration. This can be a good addition to the software providers i.e. they can include this widget in the download pages so that users know in which public virtual machine images they can try this software.
+\subsection{AmazonMachineImage data extraction}
+Amazon EC2 LinkedData dataset will be created by merging the data aquired by servaral different sources. The main source will the API provided by AWS SDK for Java \footnote{http://aws.amazon.com/documentation/sdkforjava/}. An AMI Information Extractor java application will iterate through all the public Amazon Virtual Machine images and extract the data available from the API. However, the AWS SDK lacks the ability to extract several improtant attributes like operating system, or the image size which are essential to make this dataset useful in real life scenarios. The challamnge is overcome by extracting information from other sources and aggrigating them to the dataset. There are websites and portals which provides a richer set of attributes about Amazon Machine Images which contains the aforementioned information as unstructed data available as wep pages. Examples of these sites include the AWS Management Console \footnote{http://aws.amazon.com/console/}, Ubuntu Cloud Portal \footnote{http://cloud.ubuntu.com/}, and The Cloud Market catalog {http://thecloudmarket.com/}. Needlebase platform \footnote{http://needlebase.com/} is used to acquiring, integrating, and cleansing information from these sites and feed them to the Amazon EC2 LinkedData dataset. Even more detailed information about a given AMI can be extracted by a running scripts inside the Amazon instaces created using the given AMI. Two scripts for Windows and Linux are made available for Amazon users which they can run to upload addtional data about an AMI.       
+
+\subsection{EC2LD applications}
+We have built three applications which consumes the Amazon EC2 LinkedData and provide users AmazonMachineImage ids which match their requirements. These applications are a web widget, a desktop application, a web application. The web widget which is implemented as a Google Gadget \footnote{https://developers.google.com/gadgets/} can be embedded in web pages. Once configured with certain properties, this widget can communicate with the SPARQL endpoint and dynamically fetch the amazon virtual machine images which match the requirements. This can be a good addition to the software providers i.e. they can include this widget in the download pages so that users know in which public virtual machine images they can try this software.
+
+The VMI Finder desktop application can run on a computing environment and gather the data and then will create a SPARQL query based on those information to query the SPARQL endpoint exposed by Amazon EC2 LinkedData. Users can manually modify the information that has been automatically collected before excuting the query by editing, adding, or removing any information. The query result will provide a set of AmazonMachineImage ids which matches the computing environment it runs. The web application also provide a similar funtionality where users can directly search for AmazonMachineImages via a web interface. 
+
+
