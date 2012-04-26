@@ -1,3 +1,22 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Heath_Bizer_2011}
+T.~Heath and C.~Bizer.
+\newblock {\em Linked Data: Evolving the Web into a Global Data Space},
+  volume~1.
+\newblock Morgan & Claypool, 2011.
+
+\bibitem{Steinder_2008}
+M.~Steinder, I.~Whalley, and D.~Chess.
+\newblock Server virtualization in autonomic management of heterogeneous
+  workloads.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 42(1):94--95, Jan. 2008.
+
+\bibitem{VillazonTerrazas_2011}
+B.~Villaz\'on-Terrazas, L.~Vilches-Bl\'azquez, O.~Corcho, and
+  A.~G\'omez-P\'erez.
+\newblock Methodological guidelines for publishing government linked data.
+\newblock In D.~Wood, editor, {\em Linking Government Data}, pages 27--49.
+  Springer, 2011.
 
 \end{thebibliography}

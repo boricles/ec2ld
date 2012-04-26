@@ -1,47 +1,49 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: lod.aux
 The style file: abbrv.bst
-I found no \citation commands---while reading file lod.aux
 Database file #1: sigproc.bib
-You've used 0 entries,
+Warning--can't use both author and editor fields in Heath_Bizer_2011
+Warning--can't use both volume and number fields in Heath_Bizer_2011
+You've used 3 entries,
             2118 wiz_defined-function locations,
-            497 strings with 3702 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            524 strings with 4411 characters,
+and the built_in function-call counts, 1154 in all, are:
+= -- 109
+> -- 58
+< -- 2
++ -- 22
+- -- 19
+* -- 89
+:= -- 194
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 5
+duplicate$ -- 45
+empty$ -- 87
+format.name$ -- 19
+if$ -- 239
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 3
+missing$ -- 4
+newline$ -- 18
+num.names$ -- 8
+pop$ -- 20
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 15
 quote$ -- 0
-skip$ -- 1
+skip$ -- 30
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 58
+swap$ -- 13
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There was 1 error message)
+type$ -- 10
+warning$ -- 2
+while$ -- 12
+width$ -- 4
+write$ -- 36
+(There were 2 warnings)
