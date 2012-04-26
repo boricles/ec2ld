@@ -8,30 +8,31 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY instances "http://ec2ld.linkeddata.es/resource/" >
+    <!ENTITY ec2instances "http://ec2ld.linkeddata.es/ontology/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY cloud "http://ec2ld.linkeddata.es/ontology/cloud/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY mappings "http://ec2ld.linkeddata.es/ontology/mappings/" >
     <!ENTITY opennebula "http://ec2ld.linkeddata.es/ontology/opennebula/" >
-    <!ENTITY ec2instances "http://ec2ld.linkeddata.es/ontology/" >
 ]>
 
 
 <rdf:RDF xmlns="http://granada.dia.fi.upm.es/ontologies/ms/mappings.owl#"
      xml:base="http://ec2ld.linkeddata.es/ontology/"
      xmlns:ec2instances="http://ec2ld.linkeddata.es/ontology/"
-     xmlns:instances="http://ec2ld.linkeddata.es/resource/"
      xmlns:sp="http://spinrdf.org/sp#"
-     xmlns:opennebula="http://ec2ld.linkeddata.es/ontology/opennebula/"
+     xmlns:instances="http://ec2ld.linkeddata.es/resource/"
+     xmlns:opennebula="&ec2instances;opennebula/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:spl="http://spinrdf.org/spl#"
-     xmlns:mappings="http://ec2ld.linkeddata.es/ontology/mappings/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:mappings="&ec2instances;mappings/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:spin="http://spinrdf.org/spin#"
-     xmlns:cloud="http://ec2ld.linkeddata.es/ontology/cloud/">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:cloud="&ec2instances;cloud/">
     <owl:Ontology rdf:about="">
         <owl:versionInfo rdf:datatype="&xsd;string">0.1</owl:versionInfo>
         <rdfs:comment rdf:datatype="&xsd;string"
@@ -51,35 +52,35 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#belongsToRegion -->
+    <!-- http://ec2ld.linkeddata.es/ontology/belongsToRegion -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/belongsToRegion">
+    <owl:ObjectProperty rdf:about="belongsToRegion">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Region"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="Region"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#couldBeBasedOn -->
+    <!-- http://ec2ld.linkeddata.es/ontology/couldBeBasedOn -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/couldBeBasedOn">
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <owl:ObjectProperty rdf:about="couldBeBasedOn">
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="EC2InstanceType"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasArchitecture -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasArchitecture -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasArchitecture">
+    <owl:ObjectProperty rdf:about="hasArchitecture">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Architecture"/>
+        <rdfs:range rdf:resource="Architecture"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+                    <rdf:Description rdf:about="Ami"/>
+                    <rdf:Description rdf:about="EC2InstanceType"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -87,33 +88,33 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasBlockDevice -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasBlockDevice -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasBlockDevice">
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
+    <owl:ObjectProperty rdf:about="hasBlockDevice">
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="BlockDevice"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasDiskStorage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasDiskStorage -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasDiskStorage">
-        <rdfs:subPropertyOf rdf:resource="http://ec2ld.linkeddata.es/ontology/hasStorage"/>
+    <owl:ObjectProperty rdf:about="hasDiskStorage">
+        <rdfs:subPropertyOf rdf:resource="hasStorage"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasLinuxPricing -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasLinuxPricing -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasLinuxPricing">
+    <owl:ObjectProperty rdf:about="hasLinuxPricing">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+        <rdfs:range rdf:resource="Pricing"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+                    <rdf:Description rdf:about="Ami"/>
+                    <rdf:Description rdf:about="EC2InstanceType"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -121,93 +122,93 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasMemoryStorage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasMemoryStorage -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasMemoryStorage">
-        <rdfs:subPropertyOf rdf:resource="http://ec2ld.linkeddata.es/ontology/hasStorage"/>
+    <owl:ObjectProperty rdf:about="hasMemoryStorage">
+        <rdfs:subPropertyOf rdf:resource="hasStorage"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasOwner -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasOwner -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasOwner">
+    <owl:ObjectProperty rdf:about="hasOwner">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Owner"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="Owner"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasRootDevice -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasRootDevice -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasRootDevice">
+    <owl:ObjectProperty rdf:about="hasRootDevice">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/RootDevice"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="RootDevice"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasRootDeviceType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasRootDeviceType -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasRootDeviceType">
+    <owl:ObjectProperty rdf:about="hasRootDeviceType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/RootDevice"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/RootDeviceType"/>
+        <rdfs:domain rdf:resource="RootDevice"/>
+        <rdfs:range rdf:resource="RootDeviceType"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasState -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasState -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasState">
+    <owl:ObjectProperty rdf:about="hasState">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/State"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="State"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasStorage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasStorage -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasStorage">
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Storage"/>
+    <owl:ObjectProperty rdf:about="hasStorage">
+        <rdfs:domain rdf:resource="EC2InstanceType"/>
+        <rdfs:range rdf:resource="Storage"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasVirtualizationType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasVirtualizationType -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasVirtualizationType">
+    <owl:ObjectProperty rdf:about="hasVirtualizationType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/VirtualizationType"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="VirtualizationType"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasVisibility -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasVisibility -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasVisibility">
+    <owl:ObjectProperty rdf:about="hasVisibility">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Visibility"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="Visibility"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasWindowsPricing -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasWindowsPricing -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasWindowsPricing">
+    <owl:ObjectProperty rdf:about="hasWindowsPricing">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+        <rdfs:range rdf:resource="Pricing"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+                    <rdf:Description rdf:about="Ami"/>
+                    <rdf:Description rdf:about="EC2InstanceType"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -215,71 +216,71 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hypervisor -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hypervisor -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hypervisor">
+    <owl:ObjectProperty rdf:about="hypervisor">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/HypervisorType"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="HypervisorType"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#imageSize -->
+    <!-- http://ec2ld.linkeddata.es/ontology/imageSize -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/imageSize">
+    <owl:ObjectProperty rdf:about="imageSize">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="DiskStorage"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#imageType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/imageType -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/imageType">
+    <owl:ObjectProperty rdf:about="imageType">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/ImageType"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="ImageType"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#mesuredIn -->
+    <!-- http://ec2ld.linkeddata.es/ontology/mesuredIn -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/mesuredIn">
+    <owl:ObjectProperty rdf:about="mesuredIn">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/InformationUnit"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Storage"/>
+        <rdfs:range rdf:resource="InformationUnit"/>
+        <rdfs:domain rdf:resource="Storage"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#platformOS -->
+    <!-- http://ec2ld.linkeddata.es/ontology/platformOS -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/platformOS">
+    <owl:ObjectProperty rdf:about="platformOS">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/OS"/>
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="OS"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#sameAmiAs -->
+    <!-- http://ec2ld.linkeddata.es/ontology/sameAmiAs -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/sameAmiAs">
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+    <owl:ObjectProperty rdf:about="sameAmiAs">
+        <rdfs:domain rdf:resource="Ami"/>
+        <rdfs:range rdf:resource="Ami"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#volumeSize -->
+    <!-- http://ec2ld.linkeddata.es/ontology/volumeSize -->
 
-    <owl:ObjectProperty rdf:about="http://ec2ld.linkeddata.es/ontology/volumeSize">
+    <owl:ObjectProperty rdf:about="volumeSize">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
-        <rdfs:range rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
+        <rdfs:domain rdf:resource="BlockDevice"/>
+        <rdfs:range rdf:resource="DiskStorage"/>
     </owl:ObjectProperty>
     
 
@@ -295,56 +296,56 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#amountPerHour -->
+    <!-- http://ec2ld.linkeddata.es/ontology/amountPerHour -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/amountPerHour">
+    <owl:DatatypeProperty rdf:about="amountPerHour">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+        <rdfs:domain rdf:resource="Pricing"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#deleteOnTermination -->
+    <!-- http://ec2ld.linkeddata.es/ontology/deleteOnTermination -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/deleteOnTermination">
+    <owl:DatatypeProperty rdf:about="deleteOnTermination">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
+        <rdfs:domain rdf:resource="BlockDevice"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasDescription -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasDescription -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasDescription">
+    <owl:DatatypeProperty rdf:about="hasDescription">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+        <rdfs:domain rdf:resource="Ami"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasDeviceName -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasDeviceName -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasDeviceName">
+    <owl:DatatypeProperty rdf:about="hasDeviceName">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
+        <rdfs:domain rdf:resource="BlockDevice"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasId -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasId -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasId">
+    <owl:DatatypeProperty rdf:about="hasId">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Owner"/>
+                    <rdf:Description rdf:about="Ami"/>
+                    <rdf:Description rdf:about="Owner"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -352,27 +353,27 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasKernelId -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasKernelId -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasKernelId">
+    <owl:DatatypeProperty rdf:about="hasKernelId">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+        <rdfs:domain rdf:resource="Ami"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasName -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasName -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasName">
+    <owl:DatatypeProperty rdf:about="hasName">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/Owner"/>
-                    <rdf:Description rdf:about="http://ec2ld.linkeddata.es/ontology/RootDevice"/>
+                    <rdf:Description rdf:about="Ami"/>
+                    <rdf:Description rdf:about="Owner"/>
+                    <rdf:Description rdf:about="RootDevice"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -380,70 +381,70 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasProductCode -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasProductCode -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasProductCode">
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+    <owl:DatatypeProperty rdf:about="hasProductCode">
+        <rdfs:domain rdf:resource="Ami"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasRamDiskId -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasRamDiskId -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasRamDiskId">
+    <owl:DatatypeProperty rdf:about="hasRamDiskId">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+        <rdfs:domain rdf:resource="Ami"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasRootDeviceName -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasRootDeviceName -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasRootDeviceName">
+    <owl:DatatypeProperty rdf:about="hasRootDeviceName">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/RootDevice"/>
+        <rdfs:domain rdf:resource="RootDevice"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#hasSnapshotId -->
+    <!-- http://ec2ld.linkeddata.es/ontology/hasSnapshotId -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/hasSnapshotId">
+    <owl:DatatypeProperty rdf:about="hasSnapshotId">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
+        <rdfs:domain rdf:resource="BlockDevice"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#numberOfEcu -->
+    <!-- http://ec2ld.linkeddata.es/ontology/numberOfEcu -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/numberOfEcu">
+    <owl:DatatypeProperty rdf:about="numberOfEcu">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+        <rdfs:domain rdf:resource="EC2InstanceType"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#source -->
+    <!-- http://ec2ld.linkeddata.es/ontology/source -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/source">
+    <owl:DatatypeProperty rdf:about="source">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Ami"/>
+        <rdfs:domain rdf:resource="Ami"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#storageSize -->
+    <!-- http://ec2ld.linkeddata.es/ontology/storageSize -->
 
-    <owl:DatatypeProperty rdf:about="http://ec2ld.linkeddata.es/ontology/storageSize">
+    <owl:DatatypeProperty rdf:about="storageSize">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ec2ld.linkeddata.es/ontology/Storage"/>
+        <rdfs:domain rdf:resource="Storage"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     
@@ -460,199 +461,199 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Ami -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Ami -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Ami"/>
+    <owl:Class rdf:about="Ami"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#AmiState -->
+    <!-- http://ec2ld.linkeddata.es/ontology/AmiState -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/AmiState">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/State"/>
+    <owl:Class rdf:about="AmiState">
+        <rdfs:subClassOf rdf:resource="State"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Architecture -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Architecture -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Architecture"/>
+    <owl:Class rdf:about="Architecture"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#BlockDevice -->
+    <!-- http://ec2ld.linkeddata.es/ontology/BlockDevice -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/BlockDevice"/>
+    <owl:Class rdf:about="BlockDevice"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Cloud -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Cloud -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Cloud"/>
+    <owl:Class rdf:about="Cloud"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#DiskStorage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/DiskStorage -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/DiskStorage">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/Storage"/>
+    <owl:Class rdf:about="DiskStorage">
+        <rdfs:subClassOf rdf:resource="Storage"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#EC2Cloud -->
+    <!-- http://ec2ld.linkeddata.es/ontology/EC2Cloud -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/EC2Cloud">
+    <owl:Class rdf:about="EC2Cloud">
         <rdfs:label rdf:datatype="&xsd;string"
             >Amazon EC2 Cloud</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/IaasCloud"/>
+        <rdfs:subClassOf rdf:resource="IaasCloud"/>
         <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#EC2InstanceType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/EC2InstanceType -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/EC2InstanceType">
+    <owl:Class rdf:about="EC2InstanceType">
         <rdfs:label rdf:datatype="&xsd;string">Instance type</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#HypervisorType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/HypervisorType -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/HypervisorType"/>
+    <owl:Class rdf:about="HypervisorType"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#IaasCloud -->
+    <!-- http://ec2ld.linkeddata.es/ontology/IaasCloud -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/IaasCloud">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/Cloud"/>
+    <owl:Class rdf:about="IaasCloud">
+        <rdfs:subClassOf rdf:resource="Cloud"/>
         <rdfs:comment rdf:datatype="&xsd;string"
             >Infrastructure as a service cloud</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ImageType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/ImageType -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/ImageType"/>
+    <owl:Class rdf:about="ImageType"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#InformationUnit -->
+    <!-- http://ec2ld.linkeddata.es/ontology/InformationUnit -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/InformationUnit">
+    <owl:Class rdf:about="InformationUnit">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Linux -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Linux -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Linux">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/OS"/>
+    <owl:Class rdf:about="Linux">
+        <rdfs:subClassOf rdf:resource="OS"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#MemoryStorage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/MemoryStorage -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/MemoryStorage">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/Storage"/>
+    <owl:Class rdf:about="MemoryStorage">
+        <rdfs:subClassOf rdf:resource="Storage"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#OS -->
+    <!-- http://ec2ld.linkeddata.es/ontology/OS -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/OS"/>
+    <owl:Class rdf:about="OS"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Owner -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Owner -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Owner"/>
+    <owl:Class rdf:about="Owner"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#PaasCloud -->
+    <!-- http://ec2ld.linkeddata.es/ontology/PaasCloud -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/PaasCloud">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/Cloud"/>
+    <owl:Class rdf:about="PaasCloud">
+        <rdfs:subClassOf rdf:resource="Cloud"/>
         <rdfs:comment rdf:datatype="&xsd;string"
             >Platform as a service cloud</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Pricing -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Pricing -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Pricing">
+    <owl:Class rdf:about="Pricing">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Region -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Region -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Region"/>
+    <owl:Class rdf:about="Region"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#RootDevice -->
+    <!-- http://ec2ld.linkeddata.es/ontology/RootDevice -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/RootDevice"/>
+    <owl:Class rdf:about="RootDevice"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#RootDeviceType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/RootDeviceType -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/RootDeviceType"/>
+    <owl:Class rdf:about="RootDeviceType"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#SaasCloud -->
+    <!-- http://ec2ld.linkeddata.es/ontology/SaasCloud -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/SaasCloud">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/Cloud"/>
+    <owl:Class rdf:about="SaasCloud">
+        <rdfs:subClassOf rdf:resource="Cloud"/>
         <rdfs:comment rdf:datatype="&xsd;string"
             >Software as a service cloud</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#State -->
+    <!-- http://ec2ld.linkeddata.es/ontology/State -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/State">
+    <owl:Class rdf:about="State">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
     </owl:Class>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Storage -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Storage -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Storage"/>
+    <owl:Class rdf:about="Storage"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#VirtualizationType -->
+    <!-- http://ec2ld.linkeddata.es/ontology/VirtualizationType -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/VirtualizationType"/>
+    <owl:Class rdf:about="VirtualizationType"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Visibility -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Visibility -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Visibility"/>
+    <owl:Class rdf:about="Visibility"/>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Windows -->
+    <!-- http://ec2ld.linkeddata.es/ontology/Windows -->
 
-    <owl:Class rdf:about="http://ec2ld.linkeddata.es/ontology/Windows">
-        <rdfs:subClassOf rdf:resource="http://ec2ld.linkeddata.es/ontology/OS"/>
+    <owl:Class rdf:about="Windows">
+        <rdfs:subClassOf rdf:resource="OS"/>
     </owl:Class>
     
 
@@ -674,801 +675,795 @@
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ActivityBusy -->
+    <!-- http://ec2ld.linkeddata.es/resource/EBS -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/ActivityBusy"/>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#EBS -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/EBS">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/InformationUnit"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#GB -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/GB">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/InformationUnit"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Hvm -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/Hvm">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/VirtualizationType"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#KB -->
-
-    <ec2instances:InformationUnit rdf:about="http://ec2ld.linkeddata.es/resource/KB">
+    <ec2instances:InformationUnit rdf:about="&instances;EBS">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:InformationUnit>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#MB -->
+    <!-- http://ec2ld.linkeddata.es/resource/GB -->
 
-    <ec2instances:InformationUnit rdf:about="http://ec2ld.linkeddata.es/resource/MB">
+    <owl:Thing rdf:about="&instances;GB">
+        <rdf:type rdf:resource="InformationUnit"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/Hvm -->
+
+    <ec2instances:VirtualizationType rdf:about="&instances;Hvm">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:VirtualizationType>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/KB -->
+
+    <ec2instances:InformationUnit rdf:about="&instances;KB">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:InformationUnit>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#Paravirtual -->
+    <!-- http://ec2ld.linkeddata.es/resource/MB -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/Paravirtual">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/VirtualizationType"/>
+    <owl:Thing rdf:about="&instances;MB">
+        <rdf:type rdf:resource="InformationUnit"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#TB -->
+    <!-- http://ec2ld.linkeddata.es/resource/Paravirtual -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/TB">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/InformationUnit"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#amazonLinux -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/amazonLinux">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#asia_pacific_singapore -->
-
-    <ec2instances:Region rdf:about="http://ec2ld.linkeddata.es/resource/asia_pacific_singapore">
+    <ec2instances:VirtualizationType rdf:about="&instances;Paravirtual">
         <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Region>
+    </ec2instances:VirtualizationType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#asia_pacific_tokyo -->
+    <!-- http://ec2ld.linkeddata.es/resource/TB -->
 
-    <ec2instances:Region rdf:about="http://ec2ld.linkeddata.es/resource/asia_pacific_tokyo">
+    <ec2instances:InformationUnit rdf:about="&instances;TB">
         <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Region>
+    </ec2instances:InformationUnit>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#available -->
+    <!-- http://ec2ld.linkeddata.es/resource/amazonLinux -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/available">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/AmiState"/>
+    <owl:Thing rdf:about="&instances;amazonLinux">
+        <rdf:type rdf:resource="Linux"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.medium -->
+    <!-- http://ec2ld.linkeddata.es/resource/asia_pacific_singapore -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/c1.medium">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <owl:Thing rdf:about="&instances;asia_pacific_singapore">
+        <rdf:type rdf:resource="Region"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/asia_pacific_tokyo -->
+
+    <owl:Thing rdf:about="&instances;asia_pacific_tokyo">
+        <rdf:type rdf:resource="Region"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/available -->
+
+    <owl:Thing rdf:about="&instances;available">
+        <rdf:type rdf:resource="AmiState"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/c1.medium -->
+
+    <ec2instances:EC2InstanceType rdf:about="&instances;c1.medium">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdfs:label rdf:datatype="&xsd;string"
             >High-CPU Medium Instance</rdfs:label>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">5</ec2instances:numberOfEcu>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/c1.medium.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/c1.medium.memorystorage"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/i386"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.c1.med.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.c1.med.win"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.medium.diskstorage -->
-
-    <ec2instances:DiskStorage rdf:about="http://ec2ld.linkeddata.es/resource/c1.medium.diskstorage">
-        <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">350</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </ec2instances:DiskStorage>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.medium.memorystorage -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/c1.medium.memorystorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/MemoryStorage"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">1.7</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.xlarge -->
-
-    <ec2instances:EC2InstanceType rdf:about="http://ec2ld.linkeddata.es/resource/c1.xlarge">
-        <rdf:type rdf:resource="&owl;Thing"/>
-        <rdfs:label rdf:datatype="&xsd;string"
-            >High-CPU Extra Large Instance</rdfs:label>
-        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">20</ec2instances:numberOfEcu>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/c1.xlarge.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/c1.xlarge.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.win"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;c1.medium.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;c1.medium.memorystorage"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;i386"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.c1.med.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.c1.med.win"/>
     </ec2instances:EC2InstanceType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.xlarge.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/c1.medium.diskstorage -->
 
-    <ec2instances:DiskStorage rdf:about="http://ec2ld.linkeddata.es/resource/c1.xlarge.diskstorage">
+    <owl:Thing rdf:about="&instances;c1.medium.diskstorage">
+        <rdf:type rdf:resource="DiskStorage"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">350</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/c1.medium.memorystorage -->
+
+    <ec2instances:MemoryStorage rdf:about="&instances;c1.medium.memorystorage">
         <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">1.7</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:MemoryStorage>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/c1.xlarge -->
+
+    <ec2instances:EC2InstanceType rdf:about="&instances;c1.xlarge">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >High-CPU Extra Large Instance</rdfs:label>
+        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">20</ec2instances:numberOfEcu>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;c1.xlarge.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;c1.xlarge.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.c1.xlarge.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.c1.xlarge.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
+    </ec2instances:EC2InstanceType>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/c1.xlarge.diskstorage -->
+
+    <owl:Thing rdf:about="&instances;c1.xlarge.diskstorage">
+        <rdf:type rdf:resource="DiskStorage"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">1690</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </ec2instances:DiskStorage>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#c1.xlarge.memorystorage -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/c1.xlarge.memorystorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/MemoryStorage"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">7</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#centOS -->
+    <!-- http://ec2ld.linkeddata.es/resource/c1.xlarge.memorystorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/centOS">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#debian -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/debian">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ebs -->
-
-    <ec2instances:RootDeviceType rdf:about="http://ec2ld.linkeddata.es/resource/ebs">
+    <ec2instances:MemoryStorage rdf:about="&instances;c1.xlarge.memorystorage">
         <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:RootDeviceType>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">7</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:MemoryStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#eu_west_ireland -->
+    <!-- http://ec2ld.linkeddata.es/resource/centOS -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/eu_west_ireland">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Region"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#fedora -->
-
-    <ec2instances:Linux rdf:about="http://ec2ld.linkeddata.es/resource/fedora">
+    <ec2instances:Linux rdf:about="&instances;centOS">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Linux>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#gentoo -->
+    <!-- http://ec2ld.linkeddata.es/resource/debian -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/gentoo">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
+    <owl:Thing rdf:about="&instances;debian">
+        <rdf:type rdf:resource="Linux"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#i386 -->
+    <!-- http://ec2ld.linkeddata.es/resource/ebs -->
 
-    <ec2instances:Architecture rdf:about="http://ec2ld.linkeddata.es/resource/i386">
+    <owl:Thing rdf:about="&instances;ebs">
+        <rdf:type rdf:resource="RootDeviceType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/eu_west_ireland -->
+
+    <owl:Thing rdf:about="&instances;eu_west_ireland">
+        <rdf:type rdf:resource="Region"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/fedora -->
+
+    <owl:Thing rdf:about="&instances;fedora">
+        <rdf:type rdf:resource="Linux"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/gentoo -->
+
+    <owl:Thing rdf:about="&instances;gentoo">
+        <rdf:type rdf:resource="Linux"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/i386 -->
+
+    <ec2instances:Architecture rdf:about="&instances;i386">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Architecture>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#instanceStore -->
+    <!-- http://ec2ld.linkeddata.es/resource/instanceStore -->
 
-    <ec2instances:RootDeviceType rdf:about="http://ec2ld.linkeddata.es/resource/instanceStore">
+    <ec2instances:RootDeviceType rdf:about="&instances;instanceStore">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:RootDeviceType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#kernel -->
+    <!-- http://ec2ld.linkeddata.es/resource/kernel -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/kernel">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/ImageType"/>
-    </owl:Thing>
+    <ec2instances:ImageType rdf:about="&instances;kernel">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:ImageType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.large -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.large -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m1.large">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <ec2instances:EC2InstanceType rdf:about="&instances;m1.large">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdfs:label rdf:datatype="&xsd;string">Large Instance</rdfs:label>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">4</ec2instances:numberOfEcu>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.large.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.large.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.large.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.large.win"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
-    </owl:Thing>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;m1.large.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m1.large.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m1.large.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m1.large.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
+    </ec2instances:EC2InstanceType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.large.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.large.diskstorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m1.large.diskstorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">850</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.large.memorystorage -->
-
-    <ec2instances:MemoryStorage rdf:about="http://ec2ld.linkeddata.es/resource/m1.large.memorystorage">
+    <ec2instances:DiskStorage rdf:about="&instances;m1.large.diskstorage">
         <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">7.5</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </ec2instances:MemoryStorage>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">850</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:DiskStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.small -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.large.memorystorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m1.small">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <owl:Thing rdf:about="&instances;m1.large.memorystorage">
+        <rdf:type rdf:resource="MemoryStorage"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">7.5</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/m1.small -->
+
+    <owl:Thing rdf:about="&instances;m1.small">
+        <rdf:type rdf:resource="EC2InstanceType"/>
         <rdfs:label rdf:datatype="&xsd;string">Small instance</rdfs:label>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">1</ec2instances:numberOfEcu>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/i386"/>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.small.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.small.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.small.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.small.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;i386"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;m1.small.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m1.small.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m1.small.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m1.small.win"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.small.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.small.diskstorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m1.small.diskstorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
+    <ec2instances:DiskStorage rdf:about="&instances;m1.small.diskstorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">160</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </owl:Thing>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:DiskStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.small.memorystorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.small.memorystorage -->
 
-    <ec2instances:MemoryStorage rdf:about="http://ec2ld.linkeddata.es/resource/m1.small.memorystorage">
+    <ec2instances:MemoryStorage rdf:about="&instances;m1.small.memorystorage">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">1,7</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </ec2instances:MemoryStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.xlarge -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.xlarge -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m1.xlarge">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <ec2instances:EC2InstanceType rdf:about="&instances;m1.xlarge">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <rdfs:label rdf:datatype="&xsd;string"
             >Extra Large Instance</rdfs:label>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">8</ec2instances:numberOfEcu>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.xlarge.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m1.xlarge.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.win"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
-    </owl:Thing>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;m1.xlarge.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m1.xlarge.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m1.xlarge.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m1.xlarge.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
+    </ec2instances:EC2InstanceType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.xlarge.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.xlarge.diskstorage -->
 
-    <ec2instances:DiskStorage rdf:about="http://ec2ld.linkeddata.es/resource/m1.xlarge.diskstorage">
+    <ec2instances:DiskStorage rdf:about="&instances;m1.xlarge.diskstorage">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">1690</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </ec2instances:DiskStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m1.xlarge.memorystorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m1.xlarge.memorystorage -->
 
-    <ec2instances:MemoryStorage rdf:about="http://ec2ld.linkeddata.es/resource/m1.xlarge.memorystorage">
+    <ec2instances:MemoryStorage rdf:about="&instances;m1.xlarge.memorystorage">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">15</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </ec2instances:MemoryStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.2xlarge -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.2xlarge -->
 
-    <ec2instances:EC2InstanceType rdf:about="http://ec2ld.linkeddata.es/resource/m2.2xlarge">
+    <ec2instances:EC2InstanceType rdf:about="&instances;m2.2xlarge">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">13</ec2instances:numberOfEcu>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.2xlarge.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.2xlarge.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;m2.2xlarge.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m2.2xlarge.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m2.2xlarge.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m2.2xlarge.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
     </ec2instances:EC2InstanceType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.2xlarge.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.2xlarge.diskstorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m2.2xlarge.diskstorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
+    <owl:Thing rdf:about="&instances;m2.2xlarge.diskstorage">
+        <rdf:type rdf:resource="DiskStorage"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">850</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.2xlarge.memorystorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.2xlarge.memorystorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m2.2xlarge.memorystorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/MemoryStorage"/>
+    <ec2instances:MemoryStorage rdf:about="&instances;m2.2xlarge.memorystorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">34.2</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.4xlarge -->
-
-    <ec2instances:EC2InstanceType rdf:about="http://ec2ld.linkeddata.es/resource/m2.4xlarge">
-        <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">26</ec2instances:numberOfEcu>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.4xlarge.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.4xlarge.memorystorage"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.lnx"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
-    </ec2instances:EC2InstanceType>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.4xlarge.diskstorage -->
-
-    <ec2instances:DiskStorage rdf:about="http://ec2ld.linkeddata.es/resource/m2.4xlarge.diskstorage">
-        <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">1690</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
-    </ec2instances:DiskStorage>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.4xlarge.memorystorage -->
-
-    <ec2instances:MemoryStorage rdf:about="http://ec2ld.linkeddata.es/resource/m2.4xlarge.memorystorage">
-        <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">68.4</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </ec2instances:MemoryStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.xlarge -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.4xlarge -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m2.xlarge">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
-        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">6.5</ec2instances:numberOfEcu>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.xlarge.diskstorage"/>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/m2.xlarge.memorystorage"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.lnx"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.win"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
+    <owl:Thing rdf:about="&instances;m2.4xlarge">
+        <rdf:type rdf:resource="EC2InstanceType"/>
+        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">26</ec2instances:numberOfEcu>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m2.4xlarge.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m2.4xlarge.memorystorage"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m2.2xlarge.win"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m2.4xlarge.lnx"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.xlarge.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.4xlarge.diskstorage -->
 
-    <ec2instances:DiskStorage rdf:about="http://ec2ld.linkeddata.es/resource/m2.xlarge.diskstorage">
+    <ec2instances:DiskStorage rdf:about="&instances;m2.4xlarge.diskstorage">
         <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:storageSize rdf:datatype="&xsd;float">420</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">1690</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
     </ec2instances:DiskStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#m2.xlarge.memorystorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/m2.4xlarge.memorystorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/m2.xlarge.memorystorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/MemoryStorage"/>
+    <owl:Thing rdf:about="&instances;m2.4xlarge.memorystorage">
+        <rdf:type rdf:resource="MemoryStorage"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">68.4</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/m2.xlarge -->
+
+    <owl:Thing rdf:about="&instances;m2.xlarge">
+        <rdf:type rdf:resource="EC2InstanceType"/>
+        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">6.5</ec2instances:numberOfEcu>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;m2.xlarge.diskstorage"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;m2.xlarge.memorystorage"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.m2.xlarge.lnx"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.m2.xlarge.win"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/m2.xlarge.diskstorage -->
+
+    <ec2instances:DiskStorage rdf:about="&instances;m2.xlarge.diskstorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:storageSize rdf:datatype="&xsd;float">420</ec2instances:storageSize>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:DiskStorage>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/m2.xlarge.memorystorage -->
+
+    <ec2instances:MemoryStorage rdf:about="&instances;m2.xlarge.memorystorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">17,1</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/GB"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;GB"/>
+    </ec2instances:MemoryStorage>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/machine -->
+
+    <owl:Thing rdf:about="&instances;machine">
+        <rdf:type rdf:resource="ImageType"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#machine -->
+    <!-- http://ec2ld.linkeddata.es/resource/openSolaris -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/machine">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/ImageType"/>
+    <owl:Thing rdf:about="&instances;openSolaris">
+        <rdf:type rdf:resource="Linux"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#openSolaris -->
+    <!-- http://ec2ld.linkeddata.es/resource/openSuse -->
 
-    <ec2instances:Linux rdf:about="http://ec2ld.linkeddata.es/resource/openSolaris">
+    <ec2instances:Linux rdf:about="&instances;openSuse">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Linux>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#openSuse -->
+    <!-- http://ec2ld.linkeddata.es/resource/ovm -->
 
-    <ec2instances:Linux rdf:about="http://ec2ld.linkeddata.es/resource/openSuse">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Linux>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ovm -->
-
-    <ec2instances:HypervisorType rdf:about="http://ec2ld.linkeddata.es/resource/ovm">
+    <ec2instances:HypervisorType rdf:about="&instances;ovm">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:HypervisorType>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.c1.med.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.c1.med.lnx -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.c1.med.lnx">
-        <rdf:type rdf:resource="&owl;Thing"/>
+    <owl:Thing rdf:about="&instances;prc.c1.med.lnx">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.17</ec2instances:amountPerHour>
-    </ec2instances:Pricing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.c1.med.win -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.c1.med.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
-        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.29</ec2instances:amountPerHour>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.c1.xlarge.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.c1.med.win -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.lnx">
+    <ec2instances:Pricing rdf:about="&instances;prc.c1.med.win">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.29</ec2instances:amountPerHour>
+    </ec2instances:Pricing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.lnx -->
+
+    <ec2instances:Pricing rdf:about="&instances;prc.c1.xlarge.lnx">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.68</ec2instances:amountPerHour>
     </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.c1.xlarge.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.win -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.c1.xlarge.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <ec2instances:Pricing rdf:about="&instances;prc.c1.xlarge.win">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">1.16</ec2instances:amountPerHour>
-    </owl:Thing>
+    </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.large.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.large.lnx -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.large.lnx">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <ec2instances:Pricing rdf:about="&instances;prc.m1.large.lnx">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.34</ec2instances:amountPerHour>
-    </owl:Thing>
+    </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.large.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.large.win -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.large.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <owl:Thing rdf:about="&instances;prc.m1.large.win">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.48</ec2instances:amountPerHour>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.small.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.small.lnx -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.small.lnx">
+    <ec2instances:Pricing rdf:about="&instances;prc.m1.small.lnx">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.085</ec2instances:amountPerHour>
     </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.small.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.small.win -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.small.win">
+    <ec2instances:Pricing rdf:about="&instances;prc.m1.small.win">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.12</ec2instances:amountPerHour>
     </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.xlarge.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.lnx -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.lnx">
-        <rdf:type rdf:resource="&owl;Thing"/>
+    <owl:Thing rdf:about="&instances;prc.m1.xlarge.lnx">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.68</ec2instances:amountPerHour>
-    </ec2instances:Pricing>
+    </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m1.xlarge.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.win -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m1.xlarge.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <owl:Thing rdf:about="&instances;prc.m1.xlarge.win">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.96</ec2instances:amountPerHour>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.2xlarge.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.lnx -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.lnx">
-        <rdf:type rdf:resource="&owl;Thing"/>
+    <owl:Thing rdf:about="&instances;prc.m2.2xlarge.lnx">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">1</ec2instances:amountPerHour>
-    </ec2instances:Pricing>
+    </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.2xlarge.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.2xlarge.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <owl:Thing rdf:about="&instances;prc.m2.2xlarge.win">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">1.24</ec2instances:amountPerHour>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.4xlarge.lnx -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.lnx -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.lnx">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
+    <owl:Thing rdf:about="&instances;prc.m2.4xlarge.lnx">
+        <rdf:type rdf:resource="Pricing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">2</ec2instances:amountPerHour>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.4xlarge.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.win -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.4xlarge.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
-        <ec2instances:amountPerHour rdf:datatype="&xsd;float">2.48</ec2instances:amountPerHour>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.xlarge.lnx -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.lnx">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
-        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.50</ec2instances:amountPerHour>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.m2.xlarge.win -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.win">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Pricing"/>
-        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.62</ec2instances:amountPerHour>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.t1.micro.linux -->
-
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux">
+    <ec2instances:Pricing rdf:about="&instances;prc.m2.4xlarge.win">
         <rdf:type rdf:resource="&owl;Thing"/>
-        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.02</ec2instances:amountPerHour>
+        <ec2instances:amountPerHour rdf:datatype="&xsd;float">2.48</ec2instances:amountPerHour>
     </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#prc.t1.micro.win -->
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.lnx -->
 
-    <ec2instances:Pricing rdf:about="http://ec2ld.linkeddata.es/resource/prc.t1.micro.win">
+    <ec2instances:Pricing rdf:about="&instances;prc.m2.xlarge.lnx">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.50</ec2instances:amountPerHour>
+    </ec2instances:Pricing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/prc.m2.xlarge.win -->
+
+    <ec2instances:Pricing rdf:about="&instances;prc.m2.xlarge.win">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.62</ec2instances:amountPerHour>
+    </ec2instances:Pricing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux -->
+
+    <owl:Thing rdf:about="&instances;prc.t1.micro.linux">
+        <rdf:type rdf:resource="Pricing"/>
+        <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.02</ec2instances:amountPerHour>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/prc.t1.micro.win -->
+
+    <ec2instances:Pricing rdf:about="&instances;prc.t1.micro.win">
         <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:amountPerHour rdf:datatype="&xsd;float">0.03</ec2instances:amountPerHour>
     </ec2instances:Pricing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#private -->
+    <!-- http://ec2ld.linkeddata.es/resource/private -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/private">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Visibility"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#public -->
-
-    <ec2instances:Visibility rdf:about="http://ec2ld.linkeddata.es/resource/public">
+    <ec2instances:Visibility rdf:about="&instances;private">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Visibility>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ram -->
+    <!-- http://ec2ld.linkeddata.es/resource/public -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/ram">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/ImageType"/>
+    <owl:Thing rdf:about="&instances;public">
+        <rdf:type rdf:resource="Visibility"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#redhat -->
+    <!-- http://ec2ld.linkeddata.es/resource/ram -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/redhat">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
+    <owl:Thing rdf:about="&instances;ram">
+        <rdf:type rdf:resource="ImageType"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#south_america_brasil -->
+    <!-- http://ec2ld.linkeddata.es/resource/redhat -->
 
-    <ec2instances:Region rdf:about="http://ec2ld.linkeddata.es/resource/south_america_brasil">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Region>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#suseLinux -->
-
-    <ec2instances:Linux rdf:about="http://ec2ld.linkeddata.es/resource/suseLinux">
+    <ec2instances:Linux rdf:about="&instances;redhat">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Linux>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#t1.micro -->
+    <!-- http://ec2ld.linkeddata.es/resource/south_america_brasil -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/t1.micro">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
-        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">2</ec2instances:numberOfEcu>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/i386"/>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.t1.micro.win"/>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage"/>
+    <owl:Thing rdf:about="&instances;south_america_brasil">
+        <rdf:type rdf:resource="Region"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#t1.micro.diskstorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/suseLinux -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/DiskStorage"/>
+    <ec2instances:Linux rdf:about="&instances;suseLinux">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ec2instances:Linux>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/t1.micro -->
+
+    <ec2instances:EC2InstanceType rdf:about="&instances;t1.micro">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <ec2instances:numberOfEcu rdf:datatype="&xsd;float">2</ec2instances:numberOfEcu>
+        <ec2instances:hasArchitecture rdf:resource="&instances;i386"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.t1.micro.linux"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.t1.micro.win"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;t1.micro.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;t1.micro.memorystorage"/>
+    </ec2instances:EC2InstanceType>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage -->
+
+    <owl:Thing rdf:about="&instances;t1.micro.diskstorage">
+        <rdf:type rdf:resource="DiskStorage"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">0</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/EBS"/>
+        <ec2instances:mesuredIn rdf:resource="&instances;EBS"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#t1.micro.memorystorage -->
+    <!-- http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/MemoryStorage"/>
+    <ec2instances:MemoryStorage rdf:about="&instances;t1.micro.memorystorage">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:storageSize rdf:datatype="&xsd;float">613</ec2instances:storageSize>
-        <ec2instances:mesuredIn rdf:resource="http://ec2ld.linkeddata.es/resource/MB"/>
-    </owl:Thing>
+        <ec2instances:mesuredIn rdf:resource="&instances;MB"/>
+    </ec2instances:MemoryStorage>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#t1.micro.x86_64 -->
+    <!-- http://ec2ld.linkeddata.es/resource/t1.micro.x86_64 -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/t1.micro.x86_64">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/EC2InstanceType"/>
+    <ec2instances:EC2InstanceType rdf:about="&instances;t1.micro.x86_64">
+        <rdf:type rdf:resource="&owl;Thing"/>
         <ec2instances:numberOfEcu rdf:datatype="&xsd;float">2</ec2instances:numberOfEcu>
-        <ec2instances:hasLinuxPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.t1.micro.linux"/>
-        <ec2instances:hasWindowsPricing rdf:resource="http://ec2ld.linkeddata.es/resource/prc.t1.micro.win"/>
-        <ec2instances:hasDiskStorage rdf:resource="http://ec2ld.linkeddata.es/resource/t1.micro.diskstorage"/>
-        <ec2instances:hasMemoryStorage rdf:resource="http://ec2ld.linkeddata.es/resource/t1.micro.memorystorage"/>
-        <ec2instances:hasArchitecture rdf:resource="http://ec2ld.linkeddata.es/resource/x86_64"/>
+        <ec2instances:hasLinuxPricing rdf:resource="&instances;prc.t1.micro.linux"/>
+        <ec2instances:hasWindowsPricing rdf:resource="&instances;prc.t1.micro.win"/>
+        <ec2instances:hasDiskStorage rdf:resource="&instances;t1.micro.diskstorage"/>
+        <ec2instances:hasMemoryStorage rdf:resource="&instances;t1.micro.memorystorage"/>
+        <ec2instances:hasArchitecture rdf:resource="&instances;x86_64"/>
+    </ec2instances:EC2InstanceType>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/ubuntu -->
+
+    <owl:Thing rdf:about="&instances;ubuntu">
+        <rdf:type rdf:resource="Linux"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#ubuntu -->
+    <!-- http://ec2ld.linkeddata.es/resource/unavailable -->
 
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/ubuntu">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Linux"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#unavailable -->
-
-    <ec2instances:AmiState rdf:about="http://ec2ld.linkeddata.es/resource/unavailable">
+    <ec2instances:AmiState rdf:about="&instances;unavailable">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:AmiState>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_east_virginia -->
+    <!-- http://ec2ld.linkeddata.es/resource/us_east_virginia -->
 
-    <ec2instances:Region rdf:about="http://ec2ld.linkeddata.es/resource/us_east_virginia">
+    <ec2instances:Region rdf:about="&instances;us_east_virginia">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:Region>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_west_california -->
+    <!-- http://ec2ld.linkeddata.es/resource/us_west_california -->
 
-    <ec2instances:Region rdf:about="http://ec2ld.linkeddata.es/resource/us_west_california">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Region>
-    
-
-
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#us_west_oregon -->
-
-    <owl:Thing rdf:about="http://ec2ld.linkeddata.es/resource/us_west_oregon">
-        <rdf:type rdf:resource="http://ec2ld.linkeddata.es/ontology/Region"/>
+    <owl:Thing rdf:about="&instances;us_west_california">
+        <rdf:type rdf:resource="Region"/>
     </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#windows -->
+    <!-- http://ec2ld.linkeddata.es/resource/us_west_oregon -->
 
-    <ec2instances:Windows rdf:about="http://ec2ld.linkeddata.es/resource/windows">
+    <ec2instances:Region rdf:about="&instances;us_west_oregon">
         <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Windows>
+    </ec2instances:Region>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#x86_64 -->
+    <!-- http://ec2ld.linkeddata.es/resource/windows -->
 
-    <ec2instances:Architecture rdf:about="http://ec2ld.linkeddata.es/resource/x86_64">
-        <rdf:type rdf:resource="&owl;Thing"/>
-    </ec2instances:Architecture>
+    <owl:Thing rdf:about="&instances;windows">
+        <rdf:type rdf:resource="Windows"/>
+    </owl:Thing>
     
 
 
-    <!-- http://granada.dia.fi.upm.es/ontologies/ec2/ec2instances.owl#xen -->
+    <!-- http://ec2ld.linkeddata.es/resource/x86_64 -->
 
-    <ec2instances:HypervisorType rdf:about="http://ec2ld.linkeddata.es/resource/xen">
+    <owl:Thing rdf:about="&instances;x86_64">
+        <rdf:type rdf:resource="Architecture"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://ec2ld.linkeddata.es/resource/xen -->
+
+    <ec2instances:HypervisorType rdf:about="&instances;xen">
         <rdf:type rdf:resource="&owl;Thing"/>
     </ec2instances:HypervisorType>
 </rdf:RDF>
