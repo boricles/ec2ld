@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  26 APR 2012 02:47
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  30 APR 2012 02:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -315,7 +315,7 @@ File: EC2LD.png Graphic file (type png)
 
 <use EC2LD.png>
 Package pdftex.def Info: EC2LD.png used on input line 4.
-(pdftex.def)             Requested size: 252.0pt x 190.78308pt.
+(pdftex.def)             Requested size: 381.82944pt x 289.08221pt.
 
 Overfull \hbox (3.93205pt too wide) in paragraph at lines 10--11
 []\T1/aer/m/n/9 Nowadays the ad-vance-ments of cloud com-put-ing have made
@@ -325,37 +325,38 @@ Overfull \hbox (3.93205pt too wide) in paragraph at lines 10--11
 
 
 ]
-Overfull \hbox (2.21803pt too wide) in paragraph at lines 19--19
-[]\secfnt Use cases for Ama-zon-Ma-chineIm-age reuse 
- []
+LaTeX Font Info:    Try loading font information for T1+aett on input line 14.
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 25.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (11.39294pt too wide) in paragraph at lines 27--29
-\T1/aer/m/n/9 is avail-able at $\T1/aett/m/n/9 http : / / mccarthy . dia . fi .
- upm . es : 8892 / sparql$\T1/aer/m/n/9 .
+Overfull \hbox (2.21803pt too wide) in paragraph at lines 22--22
+[]\secfnt Use cases for Ama-zon-Ma-chineIm-age reuse 
  []
 
 
-Underfull \vbox (badness 1237) has occurred while \output is active []
+Underfull \vbox (badness 1107) has occurred while \output is active []
 
- [2 <./EC2LD.png>] <gadget-config.png, id=19, 448.67625pt x 199.74625pt>
+ [2 <./EC2LD.png>]
+Overfull \hbox (11.39294pt too wide) in paragraph at lines 30--32
+\T1/aer/m/n/9 is avail-able at $\T1/aett/m/n/9 http : / / mccarthy . dia . fi .
+ upm . es : 8892 / sparql$\T1/aer/m/n/9 . 
+ []
+
+<gadget-config.png, id=19, 448.67625pt x 199.74625pt>
 File: gadget-config.png Graphic file (type png)
-
-<use gadget-config.png>
-Package pdftex.def Info: gadget-config.png used on input line 35.
+ <use gadget-config.png>
+Package pdftex.def Info: gadget-config.png used on input line 38.
 (pdftex.def)             Requested size: 252.0pt x 112.1863pt.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 35--37
+Overfull \hbox (12.0pt too wide) in paragraph at lines 38--40
  [][] 
  []
 
 <gadget-results.png, id=20, 226.8475pt x 96.36pt>
 File: gadget-results.png Graphic file (type png)
  <use gadget-results.png>
-Package pdftex.def Info: gadget-results.png used on input line 46.
+Package pdftex.def Info: gadget-results.png used on input line 47.
 (pdftex.def)             Requested size: 181.47824pt x 77.08807pt.
 )
 (./conclusions.tex) (./lod.bbl
@@ -371,13 +372,13 @@ might try typing `S' now just to see what is salvageable.
 
 ) [3 <./gadget-config.png> <./gadget-results.png>] (./lod.aux) ) 
 Here is how much of TeX's memory you used:
- 2902 strings out of 493633
- 36963 string characters out of 3143378
- 98794 words of memory out of 3000000
- 6106 multiletter control sequences out of 15000+200000
+ 2904 strings out of 493633
+ 36988 string characters out of 3143378
+ 98814 words of memory out of 3000000
+ 6108 multiletter control sequences out of 15000+200000
  55060 words of font info for 73 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 41i,10n,26p,1647b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,10n,26p,1589b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/tex
 live/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2011/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2011/texmf-d
@@ -389,7 +390,7 @@ type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/u
 rw/helvetic/uhvr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/time
 s/utmb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lod.pdf (3 pages, 309613 bytes).
+Output written on lod.pdf (3 pages, 311167 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream
